@@ -1,0 +1,52 @@
+﻿// <copyright company="Aranda Software">
+// © Todos los derechos reservados
+// </copyright>
+
+namespace Aranda.Connector.Api.Helpers
+{
+    public static class Constants
+    {
+        #region Configuration Parameter
+
+        public const string ParameterUrlCreateCase = "api/v8.6/item/add/{itemType}";
+        public const string ParameterUrlGetCase = "api/v8.6/item/{id}/{itemType}/{userId}?level={level}";
+        public const string ParameterUrlLogin = "api/v8.6/user/login";
+        public const string ParameterUrlUpdateCase = "api/v8.6/item/update/{id}/{itemType}/{userId}";
+
+        public const string TypeClaimsIdUser = "IdUser";
+        public const string TypeClaimsTokenServiceDesk = "TokenServiceDesk";
+
+        #endregion
+
+        #region Validations EndPoint
+
+        // general validation
+
+        public const string ErrorServer = "ErrorConectionServer";
+        public const string InvalidRangeCasetype = "InvalidRangeCasetype";
+
+        // create case
+        public const string InvalidRangeCategoryId = "InvalidRangeCategoryId";
+
+        public const string InvalidRangeGroupId = "InvalidRangeGroupId";
+        public const string InvalidRangeProjectId = "InvalidRangeProjectId";
+        public const string InvalidRangeRegistryTypeId = "InvalidRangeRegistryTypeId";
+        public const string InvalidRangeServiceId = "InvalidRangeServiceId";
+        public const string InvalidRangeSlaId = "InvalidRangeSlaId";
+        public const string RequiredCaseId = "RequiredCaseId";
+        public const string RequiredCasetype = "RequiredCasetype";
+        public const string RequiredCategoryId = "RequiredCategoryId";
+        public const string RequiredDescription = "RequiredDescription";
+        public const string RequiredGroupId = "RequiredGroupId";
+        public const string RequiredPassword = "RequiredPassword";
+        public const string RequiredProjectId = "RequiredProjectId";
+        public const string RequiredRegistryTypeId = "RequiredRegistryTypeId";
+        public const string RequiredServiceId = "RequiredServiceId";
+        public const string RequiredSlaId = "RequiredSlaId";
+        public const string RequiredUserName = "RequiredUserName";
+
+        // update case
+
+        #endregion
+    }
+}

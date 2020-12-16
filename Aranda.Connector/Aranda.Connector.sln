@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aranda.Connector.Api", "Aranda.Connector\Aranda.Connector.Api.csproj", "{EB2006B5-58FB-4C06-A5D4-10926615BF48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62F7A657-FF5A-47C7-80EE-9DE602499675}
+	EndGlobalSection
+EndGlobal

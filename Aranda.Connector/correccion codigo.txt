@@ -1,0 +1,10 @@
+typecCase debe ser enumeracion entre 1 y 4
+listTypeCase debe ser enum
+errores deben estar en clase constant usar Constant.invalidTypecase = "InvalidTypeCase"
+usar claims para el manejo de sessions.. investigar (system.threading.thread.CurrentPrincipal)
+cambiar las uris de appsetings por constans dejar la url base
+
+pasar las configuraciones mediante inyeccion de dependencias ... crear nuevo servicio 
+
+
+restsharp c# leer e implementar ... usar template no dynamic 
