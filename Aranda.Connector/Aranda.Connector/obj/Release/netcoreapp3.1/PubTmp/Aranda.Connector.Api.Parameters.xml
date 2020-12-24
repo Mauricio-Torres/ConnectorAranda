@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="test4connectorasdk" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="test5Linux" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Mauricio\\Documents\\Proyectos\ Web\\ConnectorAranda\\Aranda\.Connector\\Aranda\.Connector\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>
