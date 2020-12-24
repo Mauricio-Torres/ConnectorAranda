@@ -20,9 +20,12 @@ namespace Aranda.Connector.Api.Services
         }
 
         public string UrlBase { get { return Configuration["APIService:ServiceDesk:UrlBase"]; } }
+        public string UrlCategories { get { return Constants.ParameterUrlCategory; } }
         public string UrlCreateCase { get { return Constants.ParameterUrlCreateCase; } }
         public string UrlGetCase { get { return Constants.ParameterUrlGetCase; } }
         public string UrlLogin { get { return Constants.ParameterUrlLogin; } }
+        public string UrlProyects { get { return Constants.ParameterUrlProyects; } }
+        public string UrlServices { get { return Constants.ParameterUrlServices; } }
         public string UrlUpdateCase { get { return Constants.ParameterUrlUpdateCase; } }
     }
 }

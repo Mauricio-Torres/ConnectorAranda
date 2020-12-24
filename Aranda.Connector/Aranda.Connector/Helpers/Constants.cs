@@ -8,10 +8,13 @@ namespace Aranda.Connector.Api.Helpers
     {
         #region Configuration Parameter
 
+        public const string ParameterUrlCategory = "/api/v8.6/category/{projectId}/{userId}/byservice";
         public const string ParameterUrlCreateCase = "api/v8.6/item/add/{itemType}";
-        public const string ParameterUrlGetCase = "api/v8.6/item/{id}/{itemType}/{userId}?level={level}";
+        public const string ParameterUrlGetCase = "api/v8.6/item/{caseId}/{itemType}/{userId}?level={level}";
         public const string ParameterUrlLogin = "api/v8.6/user/login";
-        public const string ParameterUrlUpdateCase = "api/v8.6/item/update/{id}/{itemType}/{userId}";
+        public const string ParameterUrlProyects = "/service/api/v8.6/client/{userId}/project/list";
+        public const string ParameterUrlServices = "/api/v8.6/user/{userId}/{projectId}/enabledservice/detail/list";
+        public const string ParameterUrlUpdateCase = "api/v8.6/item/update/{caseId}/{itemType}/{userId}";
 
         public const string TypeClaimsIdUser = "IdUser";
         public const string TypeClaimsTokenServiceDesk = "TokenServiceDesk";

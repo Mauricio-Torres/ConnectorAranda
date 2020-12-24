@@ -1092,11 +1092,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauricio\\Desktop\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
       "projectName": "Aranda.Connector.Api",
-      "projectPath": "C:\\Users\\Mauricio\\Desktop\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
+      "projectPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
       "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauricio\\Desktop\\Aranda.Connector\\Aranda.Connector\\obj\\",
+      "outputPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.Connector\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mauricio\\AppData\\Roaming\\NuGet\\NuGet.Config",

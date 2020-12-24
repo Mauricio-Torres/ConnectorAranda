@@ -4,8 +4,6 @@
 using Aranda.Connector.Api.Helpers;
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models;
-using Aranda.Connector.Api.Models.Input;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
@@ -14,28 +12,27 @@ using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ManagmentCaseController : ControllerBase
+    public class ManagmentParametersController : ControllerBase
     {
-        private readonly IManagmentCaseService ManagmentService;
+        private readonly IManagmentParameters ManagmentParameters;
         private readonly ClaimsPrincipal Principal;
 
-        public ManagmentCaseController(IPrincipal principal, IManagmentCaseService managmentCaseService)
+        public ManagmentParametersController(IPrincipal principal, IManagmentParameters managmentParameters)
         {
-            ManagmentService = managmentCaseService;
+            ManagmentParameters = managmentParameters;
             Principal = principal as ClaimsPrincipal;
         }
 
-        [HttpPost("Create")]
-        public async Task<IActionResult> Create(InputCreateCaseDto inputCreateCase)
+        [HttpGet("Categories/{projectId}")]
+        public async Task<IActionResult> Categories(int projectId)
         {
             IActionResult actionResult;
             try
             {
                 UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.Create(inputCreateCase, user));
+                actionResult = Ok(await ManagmentParameters.GetCategory(user, projectId));
             }
             catch (Exception ex)
             {
@@ -45,14 +42,14 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpPost("Get")]
-        public async Task<IActionResult> Get(InputGetCaseDto inputGetCase)
+        [HttpGet("Projects")]
+        public async Task<IActionResult> Projects()
         {
             IActionResult actionResult;
             try
             {
                 UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.GetCase(inputGetCase, user));
+                actionResult = Ok(await ManagmentParameters.GetProyect(user));
             }
             catch (Exception ex)
             {
@@ -62,14 +59,14 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpPost("Update")]
-        public async Task<IActionResult> Update(InputUpdateCaseDto inputUpdateCase)
+        [HttpGet("Services/{projectId}")]
+        public async Task<IActionResult> Services(int projectId)
         {
             IActionResult actionResult;
             try
             {
                 UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.Update(inputUpdateCase, user));
+                actionResult = Ok(await ManagmentParameters.GetServices(user, projectId));
             }
             catch (Exception ex)
             {

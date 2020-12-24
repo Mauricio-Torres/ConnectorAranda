@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V/GqSVFQtEr1Kbj8nWutnT5Oogc3u+7xiILrNSxXvg8BvlszjXrk6PmUh1lIQY4Vz6B0tiADZLFRyqk4IGVRbQ==",
+  "dgSpecHash": "lo2SF5PxNwEZP06JgSOQWYYRhjV4fQ5ufMg7ff5OazxBcBdQvg3UDHFb+9r66MFIvBd7g+TLlz9QuWgvHZxMjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mauricio\\Desktop\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
+  "projectFilePath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.Connector\\Aranda.Connector.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mauricio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
