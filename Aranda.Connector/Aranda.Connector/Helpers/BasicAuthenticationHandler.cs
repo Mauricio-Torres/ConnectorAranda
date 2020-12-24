@@ -4,7 +4,6 @@
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models.ConvertDataApi;
 using Aranda.Connector.Api.Models.Input;
-using Aranda.Connector.Api.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
@@ -43,7 +42,7 @@ namespace Aranda.Connector.Api.Helpers
 
             try
             {
-                var urlBase = Request.Headers["urlBase"].ToString()?.ValidationUrl();
+                var urlBase = "";//Request.Headers["urlBase"].ToString()?.ValidationUrl();
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);

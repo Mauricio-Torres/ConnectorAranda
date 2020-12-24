@@ -8,6 +8,8 @@ namespace Aranda.Connector.Api.Interface.IService
     /// </summary>
     public interface IConfigurationService
     {
+        string UrlCategories { get; }
+
         /// <summary>
         /// Uri Creación caso en Service Desk
         /// </summary>
@@ -22,6 +24,10 @@ namespace Aranda.Connector.Api.Interface.IService
         /// Uri login Service Desk
         /// </summary>
         string UrlLogin { get; }
+
+        string UrlProyects { get; }
+        string UrlServiceDesk { get; }
+        string UrlServices { get; }
 
         /// <summary>
         /// Uri actualizar Service Desk

@@ -33,7 +33,7 @@ namespace Aranda.Connector.Api.Services
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(model, true);
 
-            string endpoint = urlServiceDesk + ConfigurationService.UrlLogin;
+            string endpoint = ConfigurationService.UrlServiceDesk + ConfigurationService.UrlLogin;
 
             List<AnswerApi> answerApi = await ConectionService.PostAsync<List<AnswerApi>>(string.Empty, endpoint, listProperty);
 

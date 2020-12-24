@@ -34,7 +34,7 @@ namespace Aranda.Connector.Api.Services
         public async Task<AnswerCreateCase> Create(InputCreateCaseDto input, UserServiceDesk user)
         {
             string uriCreateCase = ConfigurationService.UrlCreateCase.ConvertUrl(input.CaseType);
-            string endpoint = user.UrlServiceDesk + uriCreateCase;
+            string endpoint = ConfigurationService.UrlServiceDesk + uriCreateCase;
 
             MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<InputCreateCaseDto, CreateCase>());
             Mapper mapper = new Mapper(config);

@@ -25,7 +25,7 @@ namespace Aranda.Connector.Api.Services
         {
             string uriGetCase = ConfigurationService.UrlCategories.ConvertUrl(null, null, user.UserId, null, projectId);
 
-            string endpoint = ConfigurationService.UrlBase + uriGetCase;
+            string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
             List<AnswerGetCategoryApi> answerGetCategoryApis = await ConnectionService.GetAsync<List<AnswerGetCategoryApi>>(user.KeyAuthorizationAranda, endpoint);
 
             return answerGetCategoryApis.ConvertModel();
@@ -34,17 +34,15 @@ namespace Aranda.Connector.Api.Services
         public async Task<List<Parameters>> GetProyect(UserServiceDesk user)
         {
             string uriGetCase = ConfigurationService.UrlProyects.ConvertUrl(null, null, user.UserId);
-            string endpoint = ConfigurationService.UrlBase + uriGetCase;
+            string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            List<Parameters> answerProjects = await ConnectionService.GetAsync<List<Parameters>>(user.KeyAuthorizationAranda, endpoint);
-
-            return answerProjects;
+            return await ConnectionService.GetAsync<List<Parameters>>(user.KeyAuthorizationAranda, endpoint);
         }
 
         public async Task<List<Parameters>> GetServices(UserServiceDesk user, int projectId)
         {
-            string uriGetCase = ConfigurationService.UrlCategories.ConvertUrl(null, null, user.UserId, null, projectId);
-            string endpoint = ConfigurationService.UrlBase + uriGetCase;
+            string uriGetCase = ConfigurationService.UrlServices.ConvertUrl(null, null, user.UserId, null, projectId);
+            string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
             List<AnswerGetServices> answerGetCategoryApis = await ConnectionService.GetAsync<List<AnswerGetServices>>(user.KeyAuthorizationAranda, endpoint);
 

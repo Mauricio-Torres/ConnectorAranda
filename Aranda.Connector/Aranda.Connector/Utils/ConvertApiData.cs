@@ -1,7 +1,9 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
+using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.Response;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,20 @@ namespace Aranda.Connector.Api.Utils
 {
     public static class ExtensionConvers
     {
+        public static List<Parameters> ConvertModel<TModel>(this List<TModel> listData) where TModel : class
+        {
+            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, Parameters>());
+            Mapper mapper = new Mapper(config);
+
+            List<Parameters> listParameters = new List<Parameters>();
+            foreach (var item in listData)
+            {
+                listParameters.Add(mapper.Map<TModel, Parameters>(item));
+            }
+
+            return listParameters;
+        }
+
         /// <summary>
         /// Convierte una lista de propiedades en la clase inicializada
         /// </summary>
@@ -58,11 +74,12 @@ namespace Aranda.Connector.Api.Utils
         /// <param name="userId">Id usuario autenticado</param>
         /// <param name="level">Nivel de profundidad en la especificación del caso a consultar (bajo, medio, alto)</param>
         /// <returns>endpoint modificado</returns>
-        public static string ConvertUrl(this string url, int? caseType = null, long? caseId = null, int? userId = null, int? level = null)
+        public static string ConvertUrl(this string url, int? caseType = null, long? caseId = null, int? userId = null, int? level = null, int? projectId = null)
         {
             return url.Replace("{itemType}", caseType.ToString())
-                      .Replace("{id}", caseId.ToString())
+                      .Replace("{idCase}", caseId.ToString())
                       .Replace("{userId}", userId.ToString())
+                      .Replace("{projectId}", userId.ToString())
                       .Replace("{level}", level.ToString());
         }
 
