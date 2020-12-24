@@ -13,20 +13,6 @@ namespace Aranda.Connector.Api.Utils
 {
     public static class ExtensionConvers
     {
-        public static List<Parameters> ConvertModel<TModel>(this List<TModel> listData) where TModel : class
-        {
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, Parameters>());
-            Mapper mapper = new Mapper(config);
-
-            List<Parameters> listParameters = new List<Parameters>();
-            foreach (var item in listData)
-            {
-                listParameters.Add(mapper.Map<TModel, Parameters>(item));
-            }
-
-            return listParameters;
-        }
-
         /// <summary>
         /// Convierte una lista de propiedades en la clase inicializada
         /// </summary>
@@ -131,6 +117,36 @@ namespace Aranda.Connector.Api.Utils
             }
 
             return requestApis;
+        }
+
+        public static List<Parameters> MapperModel<TModel>(this List<TModel> listData) where TModel : class
+        {
+            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, Parameters>());
+            Mapper mapper = new Mapper(config);
+
+            List<Parameters> listParameters = new List<Parameters>();
+            foreach (var item in listData)
+            {
+                listParameters.Add(mapper.Map<TModel, Parameters>(item));
+            }
+
+            return listParameters;
+        }
+
+        public static CreateCase MapperModelCreate<TModel>(this TModel model) where TModel : class
+        {
+            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, CreateCase>());
+            Mapper mapper = new Mapper(config);
+
+            return mapper.Map<TModel, CreateCase>(model);
+        }
+
+        public static UpdateCase MapperModelUodate<TModel>(this TModel model) where TModel : class
+        {
+            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, UpdateCase>());
+            Mapper mapper = new Mapper(config);
+
+            return mapper.Map<TModel, UpdateCase>(model);
         }
 
         /// <summary>

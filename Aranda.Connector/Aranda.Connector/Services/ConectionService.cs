@@ -69,6 +69,10 @@ namespace Aranda.Connector.Api.Utils
             }
             else
             {
+                if (response.Content.Contains("Field") && response.Content.Contains("result"))
+                {
+                    return JsonConvert.DeserializeObject<T>(response.Content);
+                }
                 throw new CustomException(string.IsNullOrWhiteSpace(response.Content) ? Constants.ErrorServer : response.Content);
             }
         }

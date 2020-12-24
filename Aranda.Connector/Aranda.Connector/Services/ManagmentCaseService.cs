@@ -8,7 +8,6 @@ using Aranda.Connector.Api.Models.Input;
 using Aranda.Connector.Api.Models.Response;
 using Aranda.Connector.Api.Models.ResponseApi;
 using Aranda.Connector.Api.Utils;
-using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -36,10 +35,7 @@ namespace Aranda.Connector.Api.Services
             string uriCreateCase = ConfigurationService.UrlCreateCase.ConvertUrl(input.CaseType);
             string endpoint = ConfigurationService.UrlServiceDesk + uriCreateCase;
 
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<InputCreateCaseDto, CreateCase>());
-            Mapper mapper = new Mapper(config);
-            CreateCase createCase = mapper.Map<InputCreateCaseDto, CreateCase>(input);
-
+            CreateCase createCase = input.MapperModelCreate();
             createCase.AuthorId = user.UserId;
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
@@ -59,7 +55,7 @@ namespace Aranda.Connector.Api.Services
         {
             string uriGetCase = ConfigurationService.UrlGetCase.ConvertUrl(input.CaseType, input.CaseId,
                                                                               user.UserId, input.LevelId);
-            string endpoint = user.UrlServiceDesk + uriGetCase;
+            string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
             return await ConnectionService.GetAsync<AnswerGetCaseApi>(user.KeyAuthorizationAranda, endpoint);
         }
@@ -73,11 +69,9 @@ namespace Aranda.Connector.Api.Services
         public async Task<AnswerCreateCase> Update(InputUpdateCaseDto input, UserServiceDesk user)
         {
             string uriCreateCase = ConfigurationService.UrlUpdateCase.ConvertUrl(input.CaseType, input.CaseId, user.UserId);
-            string endpoint = user.UrlServiceDesk + uriCreateCase;
+            string endpoint = ConfigurationService.UrlServiceDesk + uriCreateCase;
 
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<InputUpdateCaseDto, UpdateCase>());
-            Mapper mapper = new Mapper(config);
-            UpdateCase updateCase = mapper.Map<InputUpdateCaseDto, UpdateCase>(input);
+            UpdateCase updateCase = input.MapperModelUodate();
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(updateCase, true);

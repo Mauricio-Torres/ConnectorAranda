@@ -17,7 +17,7 @@ namespace Aranda.Connector.Api.Utils
             services.AddScoped<IManagmentCaseService, ManagmentCaseService>();
             services.AddScoped<IAuthenticationArandaService, AuthenticateService>();
             services.AddScoped<IConfigurationService, ConfigurationService>();
-            services.AddScoped<IManagmentParameters, ManagmentParameters>();
+            services.AddScoped<IManagmentParameters, ManagmentParametersServices>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
         }
