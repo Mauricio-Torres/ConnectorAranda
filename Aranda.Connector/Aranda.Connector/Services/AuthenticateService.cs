@@ -26,15 +26,16 @@ namespace Aranda.Connector.Api.Services
         /// Establece la configuración para autenticar al usuario
         /// </summary>
         /// <param name="model">parámetros de autenticación</param>
+        /// <param name="urlServiceDesk">endpoint de Service Desk</param>
         /// <returns>token</returns>
-        public async Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model)
+        public async Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model, string urlServiceDesk)
         {
             List<AnswerApi> listProperty = new List<AnswerApi>();
-            List<AnswerApi> properties = listProperty.FillProperties(model, false);
+            listProperty.FillProperties(model, true);
 
-            string endpoint = ConfigurationService.UrlBase + ConfigurationService.UrlLogin;
+            string endpoint = urlServiceDesk + ConfigurationService.UrlLogin;
 
-            List<AnswerApi> answerApi = await ConectionService.PostAsync<List<AnswerApi>>(string.Empty, endpoint, properties);
+            List<AnswerApi> answerApi = await ConectionService.PostAsync<List<AnswerApi>>(string.Empty, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerAuthentication());
         }

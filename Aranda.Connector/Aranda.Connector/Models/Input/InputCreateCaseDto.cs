@@ -17,7 +17,6 @@ namespace Aranda.Connector.Api.Models.Input
         public int CaseType { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredCategoryId)]
-        [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeCategoryId)]
         public int CategoryId { set; get; }
 
         public int? CiId { set; get; }
@@ -27,8 +26,9 @@ namespace Aranda.Connector.Api.Models.Input
         [Required(ErrorMessage = Constants.RequiredDescription)]
         public string Description { set; get; }
 
+        public dynamic Dynamic { set; get; }
+
         [Required(ErrorMessage = Constants.RequiredGroupId)]
-        [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeGroupId)]
         public int GroupId { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredProjectId)]
@@ -36,21 +36,28 @@ namespace Aranda.Connector.Api.Models.Input
         public int ProjectId { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredRegistryTypeId)]
-        [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeRegistryTypeId)]
         public int RegistryTypeId { set; get; }
 
         public int? ResponsibleId { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredServiceId)]
-        [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeServiceId)]
         public int ServiceId { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredSlaId)]
-        [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeSlaId)]
         public int SlaId { set; get; }
 
+        [Required(ErrorMessage = Constants.RequiredStateId)]
         public int? StateId { set; get; }
+
         public string Subject { set; get; }
+
+        [Required(ErrorMessage = Constants.RequiredUrgencyId)]
         public int? UrgencyId { set; get; }
     }
 }
+
+// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeSlaId)]
+// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeServiceId)]
+// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeRegistryTypeId)]
+// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeGroupId)]
+// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeCategoryId)]

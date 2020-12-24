@@ -16,15 +16,12 @@ namespace Aranda.Connector.Api.Utils
     /// </summary>
     public class ConectionService : IConectionService
     {
-        private readonly IRestClient restClient = new RestClient();
-        private readonly IRestRequest restRequest = new RestRequest();
         private IRestResponse response;
+        private IRestClient restClient;
+        private IRestRequest restRequest;
 
         public ConectionService()
         {
-            restClient.ThrowOnAnyError = true;
-            restClient.FailOnDeserializationError = true;
-            restClient.ThrowOnDeserializationError = true;
         }
 
         /// <summary>
@@ -36,12 +33,7 @@ namespace Aranda.Connector.Api.Utils
         /// <returns></returns>
         public async Task<T> GetAsync<T>(string Token, string restUrl) where T : new()
         {
-            restRequest.Resource = restUrl;
-
-            if (!string.IsNullOrWhiteSpace(Token))
-            {
-                restRequest.AddHeader("Authorization", Token);
-            }
+            Initialization(restUrl, Token);
 
             response = await restClient.ExecuteGetAsync<T>(restRequest, CancellationToken.None);
 
@@ -51,7 +43,7 @@ namespace Aranda.Connector.Api.Utils
             }
             else
             {
-                throw new CustomException(string.IsNullOrWhiteSpace(response.Content) ? Constants.ErrorServer : response.Content);
+                throw new CustomException(string.IsNullOrWhiteSpace(response.Content) ? Constants.NoFound : response.Content);
             }
         }
 
@@ -59,18 +51,13 @@ namespace Aranda.Connector.Api.Utils
         /// Deserializa la respuesta obtenida por el API Rest en el tipo de clase ingresada, verbo HTTP  Post
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// /// <param name="Token">token of authorization Service Desk</param>
+        /// /// <param name="Token">Token of authorization Service Desk</param>
         /// <param name="restUrl">EndPoint </param>
         /// <param name="data">Body Request</param>
         /// <returns></returns>
         public async Task<T> PostAsync<T>(string Token, string restUrl, object data = null) where T : new()
         {
-            restRequest.Resource = restUrl;
-
-            if (!string.IsNullOrWhiteSpace(Token))
-            {
-                restRequest.AddHeader("Authorization", Token);
-            }
+            Initialization(restUrl, Token);
 
             restRequest.AddJsonBody(data);
 
@@ -83,6 +70,28 @@ namespace Aranda.Connector.Api.Utils
             else
             {
                 throw new CustomException(string.IsNullOrWhiteSpace(response.Content) ? Constants.ErrorServer : response.Content);
+            }
+        }
+
+        /// <summary>
+        /// Establece la configuración inicial para realizar peticiones HTTP
+        /// </summary>
+        /// <param name="restUrl">endpoint petición</param>
+        /// <param name="Token">Token validación</param>
+        private void Initialization(string restUrl, string Token)
+        {
+            restClient = new RestClient();
+            restRequest = new RestRequest();
+
+            restClient.ThrowOnAnyError = true;
+            restClient.FailOnDeserializationError = true;
+            restClient.ThrowOnDeserializationError = true;
+
+            restRequest.Resource = restUrl;
+
+            if (!string.IsNullOrWhiteSpace(Token))
+            {
+                restRequest.AddHeader("Authorization", Token);
             }
         }
     }

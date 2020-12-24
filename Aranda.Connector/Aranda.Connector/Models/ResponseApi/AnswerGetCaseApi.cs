@@ -9,7 +9,7 @@ namespace Aranda.Connector.Api.Models.ResponseApi
     {
         public string Address { set; get; }
         public string Annulled { set; get; }
-        public AttentionDate? AttentionDate { set; get; }
+        public AttentionDate AttentionDate { set; get; }
         public object AttentionDateExpected { set; get; }
         public object AttentionDateReal { set; get; }
         public int? AuthorId { set; get; }

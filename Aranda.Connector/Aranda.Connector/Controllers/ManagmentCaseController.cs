@@ -28,6 +28,11 @@ namespace Aranda.Connector.Api.Controllers
             Principal = principal as ClaimsPrincipal;
         }
 
+        /// <summary>
+        /// Crea caso
+        /// </summary>
+        /// <param name="inputCreateCase"></param>
+        /// <returns></returns>
         [HttpPost("Create")]
         public async Task<IActionResult> Create(InputCreateCaseDto inputCreateCase)
         {
@@ -45,6 +50,11 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
+        /// <summary>
+        /// Consulta información caso
+        /// </summary>
+        /// <param name="inputGetCase"></param>
+        /// <returns></returns>
         [HttpPost("Get")]
         public async Task<IActionResult> Get(InputGetCaseDto inputGetCase)
         {
@@ -52,7 +62,7 @@ namespace Aranda.Connector.Api.Controllers
             try
             {
                 UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.GetCase(inputGetCase, user));
+                actionResult = Ok(await ManagmentService.Get(inputGetCase, user));
             }
             catch (Exception ex)
             {
@@ -62,7 +72,12 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpPost("Update")]
+        /// <summary>
+        /// Actualiza caso
+        /// </summary>
+        /// <param name="inputUpdateCase"></param>
+        /// <returns></returns>
+        [HttpPut("Update")]
         public async Task<IActionResult> Update(InputUpdateCaseDto inputUpdateCase)
         {
             IActionResult actionResult;

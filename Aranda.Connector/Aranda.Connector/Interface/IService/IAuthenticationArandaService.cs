@@ -16,7 +16,8 @@ namespace Aranda.Connector.Api.Interface.IService
         /// Configura los parámetros para autenticar al usuario
         /// </summary>
         /// <param name="model">parámetros de autenticación</param>
+        /// <param name="urlServiceDesk">endpoint de Service Desk</param>
         /// <returns>token cifrado</returns>
-        Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model);
+        Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model, string urlServiceDesk);
     }
 }

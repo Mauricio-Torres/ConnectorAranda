@@ -12,10 +12,11 @@ namespace Aranda.Connector.Api.Helpers
         {
             string token = claimsPrincipal.FindFirst(Constants.TypeClaimsTokenServiceDesk)?.Value;
             string userId = claimsPrincipal.FindFirst(Constants.TypeClaimsIdUser)?.Value;
+            string urlServiceDesk = claimsPrincipal.FindFirst(Constants.TypeClaimsUrlBase)?.Value;
 
             int.TryParse(userId, out int id);
 
-            return new UserServiceDesk() { UserId = id, KeyAuthorizationAranda = token };
+            return new UserServiceDesk() { UserId = id, KeyAuthorizationAranda = token, UrlServiceDesk = urlServiceDesk };
         }
     }
 }

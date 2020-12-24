@@ -25,7 +25,7 @@ namespace Aranda.Connector.Api.Interface.IService
         /// <param name="input">Parámetros para obtener información de un caso  </param>
         /// <param name="user">Usuario autenticado en Service Desk</param>
         /// <returns>Toda la información del caso</returns>
-        Task<AnswerGetCaseApi> GetCase(InputGetCaseDto input, UserServiceDesk user);
+        Task<AnswerGetCaseApi> Get(InputGetCaseDto input, UserServiceDesk user);
 
         /// <summary>
         /// Configura la solicitud para actualizar un caso ya creado en la aplicación Service Desk

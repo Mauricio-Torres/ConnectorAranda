@@ -17,6 +17,7 @@ namespace Aranda.Connector.Api.Models.Input
         [Range(1, 4, ErrorMessage = Constants.InvalidRangeCasetype)]
         public int CaseType { set; get; }
 
+        [Range(0, 2, ErrorMessage = Constants.InvalidRangeLevelId)]
         public int? LevelId { set; get; }
     }
 }

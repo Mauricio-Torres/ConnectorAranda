@@ -96,14 +96,6 @@ C:\Users\Mauricio\Desktop\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp
 C:\Users\Mauricio\Desktop\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\staticwebassets\Aranda.Connector.Api.StaticWebAssets.Manifest.cache
 C:\Users\Mauricio\Desktop\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\staticwebassets\Aranda.Connector.Api.StaticWebAssets.xml
 C:\Users\Mauricio\Desktop\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.genruntimeconfig.cache
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.csprojAssemblyReference.cache
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.AssemblyInfoInputs.cache
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.AssemblyInfo.cs
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.csproj.CoreCompileInputs.cache
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.dll
-C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.pdb
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -140,8 +132,16 @@ C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Arand
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.csprojAssemblyReference.cache
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.AssemblyInfoInputs.cache
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.AssemblyInfo.cs
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.RazorTargetAssemblyInfo.cache
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.csproj.CopyComplete
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\staticwebassets\Aranda.Connector.Api.StaticWebAssets.Manifest.cache
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\staticwebassets\Aranda.Connector.Api.StaticWebAssets.xml
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.dll
+C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.pdb
 C:\Users\Mauricio\Documents\Proyectos Web\ConnectorAranda\Aranda.Connector\Aranda.Connector\obj\Debug\netcoreapp3.1\Aranda.Connector.Api.genruntimeconfig.cache

@@ -29,12 +29,12 @@ namespace Aranda.Connector.Api.Services
         /// Adiciona un caso en la aplicación Service Desk
         /// </summary>
         /// <param name="input">Parámetros para crear un caso </param>
-        /// <param name="user">Usuario autenticado en Service Desk</param>
+        /// <param name="user">Usuario autenticado</param>
         /// <returns>estado del caso creado</returns>
         public async Task<AnswerCreateCase> Create(InputCreateCaseDto input, UserServiceDesk user)
         {
             string uriCreateCase = ConfigurationService.UrlCreateCase.ConvertUrl(input.CaseType);
-            string endpoint = ConfigurationService.UrlBase + uriCreateCase;
+            string endpoint = user.UrlServiceDesk + uriCreateCase;
 
             MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<InputCreateCaseDto, CreateCase>());
             Mapper mapper = new Mapper(config);
@@ -44,7 +44,6 @@ namespace Aranda.Connector.Api.Services
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(createCase, true);
-
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerCreateCase());
@@ -56,12 +55,11 @@ namespace Aranda.Connector.Api.Services
         /// <param name="input">Parámetros para solicitar información del caso a consultar</param>
         /// <param name="user">Usuario autenticado</param>
         /// <returns>información caso </returns>
-        public async Task<AnswerGetCaseApi> GetCase(InputGetCaseDto input, UserServiceDesk user)
+        public async Task<AnswerGetCaseApi> Get(InputGetCaseDto input, UserServiceDesk user)
         {
             string uriGetCase = ConfigurationService.UrlGetCase.ConvertUrl(input.CaseType, input.CaseId,
                                                                               user.UserId, input.LevelId);
-
-            string endpoint = ConfigurationService.UrlBase + uriGetCase;
+            string endpoint = user.UrlServiceDesk + uriGetCase;
 
             return await ConnectionService.GetAsync<AnswerGetCaseApi>(user.KeyAuthorizationAranda, endpoint);
         }
@@ -75,10 +73,14 @@ namespace Aranda.Connector.Api.Services
         public async Task<AnswerCreateCase> Update(InputUpdateCaseDto input, UserServiceDesk user)
         {
             string uriCreateCase = ConfigurationService.UrlUpdateCase.ConvertUrl(input.CaseType, input.CaseId, user.UserId);
-            string endpoint = ConfigurationService.UrlBase + uriCreateCase;
+            string endpoint = user.UrlServiceDesk + uriCreateCase;
+
+            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<InputUpdateCaseDto, UpdateCase>());
+            Mapper mapper = new Mapper(config);
+            UpdateCase updateCase = mapper.Map<InputUpdateCaseDto, UpdateCase>(input);
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
-            listProperty.FillProperties(input, true);
+            listProperty.FillProperties(updateCase, true);
 
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
 

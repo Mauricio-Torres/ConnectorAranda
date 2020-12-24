@@ -4,6 +4,7 @@
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models.ConvertDataApi;
 using Aranda.Connector.Api.Models.Input;
+using Aranda.Connector.Api.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
@@ -42,21 +43,23 @@ namespace Aranda.Connector.Api.Helpers
 
             try
             {
+                var urlBase = Request.Headers["urlBase"].ToString()?.ValidationUrl();
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
 
-                InputAuthenticateDto inputAuthenticateDto = new InputAuthenticateDto()
+                InputAuthenticateDto inputAuthenticateDto = new InputAuthenticateDto
                 {
                     password = credentials[1],
                     username = credentials[0]
                 };
 
-                AnswerAuthentication user = await AuthenticationService.Authenticate(inputAuthenticateDto);
+                AnswerAuthentication user = await AuthenticationService.Authenticate(inputAuthenticateDto, urlBase);
 
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(Constants.TypeClaimsTokenServiceDesk, user.SessionId),
-                    new Claim(Constants.TypeClaimsIdUser, user.UserId.ToString())
+                    new Claim(Constants.TypeClaimsIdUser, user.UserId.ToString()),
+                    new Claim(Constants.TypeClaimsUrlBase, urlBase)
                 }, "BasicAuthentication");
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
@@ -64,8 +67,8 @@ namespace Aranda.Connector.Api.Helpers
             }
             catch (Exception ex)
             {
-                Response.StatusCode = 401;
                 Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = ex.Message;
+                Response.StatusCode = 401;
                 return AuthenticateResult.Fail(ex.Message);
             }
 
