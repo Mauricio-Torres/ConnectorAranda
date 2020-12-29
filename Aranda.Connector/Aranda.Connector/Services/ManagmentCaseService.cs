@@ -40,6 +40,8 @@ namespace Aranda.Connector.Api.Services
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(createCase, true);
+            listProperty.AddProperties(input.Dynamic);
+
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerCreateCase());
@@ -75,7 +77,7 @@ namespace Aranda.Connector.Api.Services
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(updateCase, true);
-
+            listProperty.AddProperties(input.Dynamic);
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerCreateCase());

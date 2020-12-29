@@ -28,7 +28,10 @@ namespace Aranda.Connector.Api.Services
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
             List<AnswerGetCategoryApi> answerGetCategoryApis = await ConnectionService.GetAsync<List<AnswerGetCategoryApi>>(user.KeyAuthorizationAranda, endpoint);
 
-            return new ResponseParameters { Parameters = answerGetCategoryApis.MapperModel() };
+            return new ResponseParameters
+            {
+                Parameters = answerGetCategoryApis.MapperModel()
+            };
         }
 
         public async Task<ResponseParameters> GetProyect(UserServiceDesk user)
@@ -36,7 +39,10 @@ namespace Aranda.Connector.Api.Services
             string uriGetCase = ConfigurationService.UrlProyects.ConvertUrl(null, null, user.UserId);
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return new ResponseParameters { Parameters = await ConnectionService.GetAsync<List<Parameters>>(user.KeyAuthorizationAranda, endpoint) };
+            return new ResponseParameters
+            {
+                Parameters = await ConnectionService.GetAsync<List<Parameters>>(user.KeyAuthorizationAranda, endpoint)
+            };
         }
 
         public async Task<ResponseParameters> GetServices(UserServiceDesk user, int projectId)
@@ -46,7 +52,10 @@ namespace Aranda.Connector.Api.Services
 
             List<AnswerGetServices> answerGetCategoryApis = await ConnectionService.GetAsync<List<AnswerGetServices>>(user.KeyAuthorizationAranda, endpoint);
 
-            return new ResponseParameters { Parameters = answerGetCategoryApis.MapperModel() };
+            return new ResponseParameters
+            {
+                Parameters = answerGetCategoryApis.MapperModel()
+            };
         }
     }
 }

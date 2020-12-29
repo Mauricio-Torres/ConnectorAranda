@@ -13,6 +13,19 @@ namespace Aranda.Connector.Api.Utils
 {
     public static class ExtensionConvers
     {
+        public static List<AnswerApi> AddProperties(this List<AnswerApi> requestApis, List<AnswerApi> newProperty)
+        {
+            foreach (var item in newProperty)
+            {
+                if (!string.IsNullOrWhiteSpace(item.Field) && item.Value != null)
+                {
+                    requestApis.Add(item);
+                }
+            }
+
+            return requestApis;
+        }
+
         /// <summary>
         /// Convierte una lista de propiedades en la clase inicializada
         /// </summary>

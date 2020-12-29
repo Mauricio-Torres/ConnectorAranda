@@ -2,7 +2,9 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Helpers;
+using Aranda.Connector.Api.Models.Response;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Aranda.Connector.Api.Models.Input
@@ -26,7 +28,7 @@ namespace Aranda.Connector.Api.Models.Input
         [Required(ErrorMessage = Constants.RequiredDescription)]
         public string Description { set; get; }
 
-        public dynamic Dynamic { set; get; }
+        public List<AnswerApi> Dynamic { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredGroupId)]
         public int GroupId { set; get; }
