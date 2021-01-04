@@ -8,7 +8,7 @@ namespace Aranda.Connector.Api.Interface.IService
 {
     public interface IManagmentParameters
     {
-        Task<ResponseParameters> GetCategory(UserServiceDesk user, int projectId);
+        Task<ResponseParameters> GetCategory(UserServiceDesk user, int serviceId, int projectId);
 
         Task<ResponseParameters> GetProyect(UserServiceDesk user);
 

@@ -27,14 +27,14 @@ namespace Aranda.Connector.Api.Controllers
             Principal = principal as ClaimsPrincipal;
         }
 
-        [HttpGet("Categories/{projectId}")]
-        public async Task<IActionResult> Categories(int projectId)
+        [HttpGet("Categories/{projectId}/{serviceId}")]
+        public async Task<IActionResult> Categories(int projectId, int serviceId)
         {
             IActionResult actionResult;
             try
             {
                 UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetCategory(user, projectId));
+                actionResult = Ok(await ManagmentParameters.GetCategory(user, serviceId, projectId));
             }
             catch (Exception ex)
             {

@@ -21,11 +21,11 @@ namespace Aranda.Connector.Api.Services
             ConnectionService = conectionService;
         }
 
-        public async Task<ResponseParameters> GetCategory(UserServiceDesk user, int projectId)
+        public async Task<ResponseParameters> GetCategory(UserServiceDesk user, int serviceId, int projectId)
         {
-            string uriGetCase = ConfigurationService.UrlCategories.ConvertUrl(null, null, user.UserId, null, projectId);
-
+            string uriGetCase = ConfigurationService.UrlCategories.ConvertUrl(null, null, null, null, projectId, serviceId);
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
+
             List<AnswerGetCategoryApi> answerGetCategoryApis = await ConnectionService.GetAsync<List<AnswerGetCategoryApi>>(user.KeyAuthorizationAranda, endpoint);
 
             return new ResponseParameters

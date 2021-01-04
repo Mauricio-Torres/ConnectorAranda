@@ -13,13 +13,45 @@ namespace Aranda.Connector.Api.Utils
 {
     public static class ExtensionConvers
     {
+        /// <summary>
+        /// Adiciona nuevas propiedades (campo-valor) a la lista de propiedades obligatorias
+        /// </summary>
+        /// <param name="requestApis">lista de propiedades inicial</param>
+        /// <param name="newProperty">lista de propiedades a adicionar</param>
+        /// <returns>lista de propiedades (campo-valor) modificada</returns>
         public static List<AnswerApi> AddProperties(this List<AnswerApi> requestApis, List<AnswerApi> newProperty)
         {
             foreach (var item in newProperty)
             {
-                if (!string.IsNullOrWhiteSpace(item.Field) && item.Value != null)
+                AnswerApi answerApi = requestApis.FirstOrDefault(x => x.Field.Equals(item.Field));
+                if (!string.IsNullOrWhiteSpace(item.Field) && item.Value != null && answerApi == null)
                 {
-                    requestApis.Add(item);
+                    var value = item.Value.ToString();
+
+                    if (Int32.TryParse(value, out int num))
+                    {
+                        requestApis.Add(new AnswerApi
+                        {
+                            Field = item.Field,
+                            Value = num
+                        });
+                    }
+                    else if (bool.TryParse(value, out bool response))
+                    {
+                        requestApis.Add(new AnswerApi
+                        {
+                            Field = item.Field,
+                            Value = response
+                        });
+                    }
+                    else
+                    {
+                        requestApis.Add(new AnswerApi
+                        {
+                            Field = item.Field,
+                            Value = value
+                        });
+                    }
                 }
             }
 
@@ -73,12 +105,13 @@ namespace Aranda.Connector.Api.Utils
         /// <param name="userId">Id usuario autenticado</param>
         /// <param name="level">Nivel de profundidad en la especificación del caso a consultar (bajo, medio, alto)</param>
         /// <returns>endpoint modificado</returns>
-        public static string ConvertUrl(this string url, int? caseType = null, long? caseId = null, int? userId = null, int? level = null, int? projectId = null)
+        public static string ConvertUrl(this string url, int? caseType = null, long? caseId = null, int? userId = null, int? level = null, int? projectId = null, int? serviceId = null)
         {
             return url.Replace("{itemType}", caseType.ToString())
                       .Replace("{idCase}", caseId.ToString())
                       .Replace("{userId}", userId.ToString())
-                      .Replace("{projectId}", userId.ToString())
+                      .Replace("{projectId}", projectId.ToString())
+                      .Replace("{serviceId}", serviceId.ToString())
                       .Replace("{level}", level.ToString());
         }
 
@@ -132,6 +165,12 @@ namespace Aranda.Connector.Api.Utils
             return requestApis;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <param name="listData"></param>
+        /// <returns></returns>
         public static List<Parameters> MapperModel<TModel>(this List<TModel> listData) where TModel : class
         {
             MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, Parameters>());
@@ -146,6 +185,12 @@ namespace Aranda.Connector.Api.Utils
             return listParameters;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public static CreateCase MapperModelCreate<TModel>(this TModel model) where TModel : class
         {
             MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, CreateCase>());
@@ -154,6 +199,12 @@ namespace Aranda.Connector.Api.Utils
             return mapper.Map<TModel, CreateCase>(model);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public static UpdateCase MapperModelUodate<TModel>(this TModel model) where TModel : class
         {
             MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, UpdateCase>());

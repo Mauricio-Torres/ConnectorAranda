@@ -8,7 +8,7 @@ namespace Aranda.Connector.Api.Helpers
     {
         #region Configuration Parameter
 
-        public const string ParameterUrlCategories = "api/v8.6/category/{projectId}/{userId}/byservice";
+        public const string ParameterUrlCategories = "api/v8.6/category/{projectId}/{serviceId}/byservice";
         public const string ParameterUrlCreateCase = "api/v8.6/item/add/{itemType}";
         public const string ParameterUrlGetCase = "api/v8.6/item/{idCase}/{itemType}/{userId}?level={level}";
         public const string ParameterUrlLogin = "api/v8.6/user/login";
