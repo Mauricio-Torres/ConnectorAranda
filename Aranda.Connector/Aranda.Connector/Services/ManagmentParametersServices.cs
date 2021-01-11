@@ -4,7 +4,7 @@
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.ResponseApi;
-using Aranda.Connector.Api.Utils;
+using Aranda.Connector.Api.Utils.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

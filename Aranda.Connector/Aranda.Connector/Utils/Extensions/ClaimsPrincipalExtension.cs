@@ -1,10 +1,11 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
+using Aranda.Connector.Api.Helpers;
 using Aranda.Connector.Api.Models;
 using System.Security.Claims;
 
-namespace Aranda.Connector.Api.Helpers
+namespace Aranda.Connector.Api.Utils.Extensions
 {
     public static class ClaimsPrincipalExtension
     {

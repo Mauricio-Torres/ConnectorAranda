@@ -1,10 +1,10 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Helpers;
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.Input;
+using Aranda.Connector.Api.Utils.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;

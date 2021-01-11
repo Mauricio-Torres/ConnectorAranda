@@ -4,7 +4,7 @@
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models.ConvertDataApi;
 using Aranda.Connector.Api.Models.Input;
-using Aranda.Connector.Api.Utils;
+using Aranda.Connector.Api.Utils.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;

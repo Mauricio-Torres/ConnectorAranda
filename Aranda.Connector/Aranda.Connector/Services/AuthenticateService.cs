@@ -5,7 +5,7 @@ using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models.ConvertDataApi;
 using Aranda.Connector.Api.Models.Input;
 using Aranda.Connector.Api.Models.Response;
-using Aranda.Connector.Api.Utils;
+using Aranda.Connector.Api.Utils.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
