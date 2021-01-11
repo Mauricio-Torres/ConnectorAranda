@@ -44,6 +44,40 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
+        [HttpGet("Group/{serviceId}")]
+        public async Task<IActionResult> Group(int serviceId)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetGroups(user, serviceId));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("ItemType/{categoryId}/{projectId}")]
+        public async Task<IActionResult> ItemType(int categoryId, int projectId)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetItemType(user, categoryId, projectId));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
         [HttpGet("Projects")]
         public async Task<IActionResult> Projects()
         {
@@ -61,6 +95,40 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
+        [HttpGet("RegistryType")]
+        public async Task<IActionResult> RegistryType()
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetRegistryType(user));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("Responsible/{groupId}/{projectId}")]
+        public async Task<IActionResult> Responsible(int groupId, int projectId)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetResponsible(user, groupId, projectId));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
         [HttpGet("Services/{projectId}")]
         public async Task<IActionResult> Services(int projectId)
         {
@@ -69,6 +137,74 @@ namespace Aranda.Connector.Api.Controllers
             {
                 UserServiceDesk user = Principal.User();
                 actionResult = Ok(await ManagmentParameters.GetServices(user, projectId));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("SLAs/{serviceId}/{itemType}")]
+        public async Task<IActionResult> SLAs(int serviceId, int itemType)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetSLAs(user, serviceId, itemType));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("State/{itemType}/{projectId}")]
+        public async Task<IActionResult> State(int itemType, int projectId)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetState(user, itemType, projectId));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("StateWhenUpdate/{itemType}")]
+        public async Task<IActionResult> StateWhenUpdate(int itemType)
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetStateWhenUpdateCase(user, itemType));
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        [HttpGet("Urgency")]
+        public async Task<IActionResult> Urgency()
+        {
+            IActionResult actionResult;
+            try
+            {
+                UserServiceDesk user = Principal.User();
+                actionResult = Ok(await ManagmentParameters.GetUrgency(user));
             }
             catch (Exception ex)
             {

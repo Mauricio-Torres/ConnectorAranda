@@ -15,10 +15,12 @@ namespace Aranda.Connector.Api.Utils
         {
             services.AddScoped<IConectionService, ConectionService>();
             services.AddScoped<IManagmentCaseService, ManagmentCaseService>();
+            services.AddScoped<IManagmentAdditionalFieldService, ManagmentAdditionalFieldService>();
             services.AddScoped<IAuthenticationArandaService, AuthenticateService>();
             services.AddScoped<IConfigurationService, ConfigurationService>();
             services.AddScoped<IManagmentParameters, ManagmentParametersServices>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddTransient<IPrincipal>(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
         }
     }

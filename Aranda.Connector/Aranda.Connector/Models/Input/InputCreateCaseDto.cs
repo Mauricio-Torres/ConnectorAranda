@@ -2,7 +2,6 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Helpers;
-using Aranda.Connector.Api.Models.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,6 +13,8 @@ namespace Aranda.Connector.Api.Models.Input
     /// </summary>
     public class InputCreateCaseDto
     {
+        public List<InputAdditionalFields> AdditionalFields { set; get; }
+
         [Required(ErrorMessage = Constants.RequiredCasetype)]
         [Range(1, 4, ErrorMessage = Constants.InvalidRangeCasetype)]
         public int CaseType { set; get; }
@@ -27,8 +28,6 @@ namespace Aranda.Connector.Api.Models.Input
 
         [Required(ErrorMessage = Constants.RequiredDescription)]
         public string Description { set; get; }
-
-        public List<AnswerApi> Dynamic { set; get; }
 
         [Required(ErrorMessage = Constants.RequiredGroupId)]
         public int GroupId { set; get; }

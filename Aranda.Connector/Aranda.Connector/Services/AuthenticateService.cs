@@ -28,7 +28,7 @@ namespace Aranda.Connector.Api.Services
         /// <param name="model">parámetros de autenticación</param>
         /// <param name="urlServiceDesk">endpoint de Service Desk</param>
         /// <returns>token</returns>
-        public async Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model, string urlServiceDesk)
+        public async Task<AnswerAuthentication> Authenticate(InputAuthenticateDto model)
         {
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(model, true);
