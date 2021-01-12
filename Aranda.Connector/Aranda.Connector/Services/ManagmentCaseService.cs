@@ -52,7 +52,7 @@ namespace Aranda.Connector.Api.Services
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(createCase, true);
 
-            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User().KeyAuthorizationAranda, endpoint, listProperty);
+            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User().KeyAuthorization, endpoint, listProperty);
             AnswerCreateCase answerCreate = answerApi.ConvertModel(new AnswerCreateCase());
 
             List<UpdateFields> listAdditionalFields = input.AdditionalFields.MapperModelUpdateFields(Principal.User().UserId, answerCreate.ItemId, input.CaseType);
@@ -60,7 +60,7 @@ namespace Aranda.Connector.Api.Services
             string uriUpdateFields = ConfigurationService.UrlUpdateAdditionalFields;
             string endpointFields = ConfigurationService.UrlServiceDesk + uriUpdateFields;
 
-            await ConnectionService.PostAsync(Principal.User()?.KeyAuthorizationAranda, endpointFields, listAdditionalFields);
+            await ConnectionService.PostAsync(Principal.User()?.KeyAuthorization, endpointFields, listAdditionalFields);
 
             return answerCreate;
         }
@@ -84,7 +84,7 @@ namespace Aranda.Connector.Api.Services
             string uriGetCase = ConfigurationService.UrlGetCase.ConvertUrl(parameterUrl);
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await ConnectionService.GetAsync<AnswerGetCaseApi>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await ConnectionService.GetAsync<AnswerGetCaseApi>(Principal.User().KeyAuthorization, endpoint);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Aranda.Connector.Api.Services
             listProperty.FillProperties(updateCase, true);
             listProperty.AddProperties(input.Dynamic);
 
-            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User()?.KeyAuthorizationAranda, endpoint, listProperty);
+            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User()?.KeyAuthorization, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerCreateCase());
         }

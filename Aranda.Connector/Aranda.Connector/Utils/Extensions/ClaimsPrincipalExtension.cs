@@ -16,7 +16,7 @@ namespace Aranda.Connector.Api.Utils.Extensions
 
             int.TryParse(userId, out int id);
 
-            return new UserServiceDesk() { UserId = id, KeyAuthorizationAranda = token };
+            return new UserServiceDesk() { UserId = id, KeyAuthorization = token };
         }
     }
 }

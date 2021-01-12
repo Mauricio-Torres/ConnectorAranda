@@ -37,7 +37,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerGetCategoryApi>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerGetCategoryApi>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetGroups(int serviceId)
@@ -49,7 +49,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetItemType(int categoryId, int projectId)
@@ -62,7 +62,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetProyect()
@@ -74,7 +74,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<Parameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<Parameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetRegistryType()
@@ -82,7 +82,7 @@ namespace Aranda.Connector.Api.Services
             string uriGetCase = ConfigurationService.UrlRegistryType;
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetResponsible(int groupId, int projectId)
@@ -95,7 +95,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetServices(int projectId)
@@ -108,7 +108,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerGetServices>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerGetServices>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetSLAs(int serviceId, int itemType)
@@ -121,7 +121,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetState(int itemType, int projectId)
@@ -134,7 +134,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetStateWhenUpdateCase(int itemType)
@@ -146,7 +146,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerGetState>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerGetState>(Principal.User().KeyAuthorization, endpoint);
         }
 
         public async Task<AnswerParameters> GetUrgency()
@@ -155,7 +155,7 @@ namespace Aranda.Connector.Api.Services
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorizationAranda, endpoint);
+            return await AnswerParameters<AnswerFieldParameters>(Principal.User().KeyAuthorization, endpoint);
         }
 
         private async Task<AnswerParameters> AnswerParameters<TModel>(string KeyAuthorization, string endpoint) where TModel : class

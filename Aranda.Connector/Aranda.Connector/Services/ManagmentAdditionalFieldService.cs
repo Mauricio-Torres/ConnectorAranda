@@ -46,7 +46,7 @@ namespace Aranda.Connector.Api.Services
                 itemType = itemType,
                 projectId = projectId,
                 idCase = 0,
-                KeyAuthorization = Principal.User().KeyAuthorizationAranda
+                KeyAuthorization = Principal.User().KeyAuthorization
             };
 
             //campos básicos
@@ -126,7 +126,7 @@ namespace Aranda.Connector.Api.Services
             string uriGetBasicFields = ConfigurationService.UrlAdditionalBasicFields.ConvertUrl(parameterUrl);
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetBasicFields;
 
-            return await ConnectionService.GetAsync<List<AnwerGetAdditionalField>>(user.KeyAuthorizationAranda, endpoint);
+            return await ConnectionService.GetAsync<List<AnwerGetAdditionalField>>(user.KeyAuthorization, endpoint);
         }
     }
 }
