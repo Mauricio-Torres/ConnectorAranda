@@ -1,6 +1,7 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
+
 namespace Aranda.Connector.Api.Interface.IService
 {
     /// <summary>

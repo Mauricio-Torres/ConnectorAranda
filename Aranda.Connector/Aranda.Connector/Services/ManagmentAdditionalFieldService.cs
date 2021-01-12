@@ -8,6 +8,8 @@ using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.ResponseApi;
 using Aranda.Connector.Api.Utils.Extensions;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Services
@@ -16,11 +18,13 @@ namespace Aranda.Connector.Api.Services
     {
         private readonly IConfigurationService ConfigurationService;
         private readonly IConectionService ConnectionService;
+        private readonly ClaimsPrincipal Principal;
 
-        public ManagmentAdditionalFieldService(IConfigurationService configurationService, IConectionService conectionService)
+        public ManagmentAdditionalFieldService(IConfigurationService configurationService, IConectionService conectionService, IPrincipal principal)
         {
             ConfigurationService = configurationService;
             ConnectionService = conectionService;
+            Principal = principal as ClaimsPrincipal;
         }
 
         /// <summary>
@@ -33,7 +37,7 @@ namespace Aranda.Connector.Api.Services
         /// <param name="serviceId">id de servicio</param>
         /// <param name="stateId">id de estado</param>
         /// <returns></returns>
-        public async Task<AnswerAdditionalFields> GetAdditionalField(UserServiceDesk user, int projectId, int itemType, int categoryId, int serviceId, int stateId)
+        public async Task<AnswerAdditionalFields> GetAdditionalField(int projectId, int itemType, int categoryId, int serviceId, int stateId)
         {
             List<AnwerGetAdditionalField> listAdditionalField = new List<AnwerGetAdditionalField>();
 
@@ -42,13 +46,13 @@ namespace Aranda.Connector.Api.Services
                 itemType = itemType,
                 projectId = projectId,
                 idCase = 0,
-                KeyAuthorization = user.KeyAuthorizationAranda
+                KeyAuthorization = Principal.User().KeyAuthorizationAranda
             };
 
             //campos básicos
             if (projectId > 0)
             {
-                List<AnwerGetAdditionalField> listBasicField = await GetBasicField(user, projectId, itemType);
+                List<AnwerGetAdditionalField> listBasicField = await GetBasicField(Principal.User(), projectId, itemType);
                 listBasicField.ForEach(item => listAdditionalField.Add(item));
             }
 

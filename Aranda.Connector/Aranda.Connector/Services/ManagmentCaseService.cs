@@ -9,6 +9,8 @@ using Aranda.Connector.Api.Models.Response;
 using Aranda.Connector.Api.Models.ResponseApi;
 using Aranda.Connector.Api.Utils.Extensions;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Services
@@ -17,11 +19,15 @@ namespace Aranda.Connector.Api.Services
     {
         private readonly IConfigurationService ConfigurationService;
         private readonly IConectionService ConnectionService;
+        private readonly ClaimsPrincipal Principal;
 
-        public ManagmentCaseService(IConfigurationService configurationService, IConectionService conectionService)
+        public ManagmentCaseService(IConfigurationService configurationService,
+                                    IConectionService conectionService,
+                                    IPrincipal principal)
         {
             ConfigurationService = configurationService;
             ConnectionService = conectionService;
+            Principal = principal as ClaimsPrincipal;
         }
 
         /// <summary>
@@ -30,7 +36,7 @@ namespace Aranda.Connector.Api.Services
         /// <param name="input">Parámetros para crear un caso </param>
         /// <param name="user">Usuario autenticado</param>
         /// <returns>estado del caso creado</returns>
-        public async Task<AnswerCreateCase> Create(InputCreateCaseDto input, UserServiceDesk user)
+        public async Task<AnswerCreateCase> Create(InputCreateCaseDto input)
         {
             UrlParameters parameterUrl = new UrlParameters
             {
@@ -41,20 +47,20 @@ namespace Aranda.Connector.Api.Services
             string endpoint = ConfigurationService.UrlServiceDesk + uriCreateCase;
 
             CreateCase createCase = input.MapperModelCreate();
-            createCase.AuthorId = user.UserId;
+            createCase.AuthorId = Principal.User().UserId;
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(createCase, true);
 
-            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
+            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User().KeyAuthorizationAranda, endpoint, listProperty);
             AnswerCreateCase answerCreate = answerApi.ConvertModel(new AnswerCreateCase());
 
-            List<UpdateFields> listAdditionalFields = input.AdditionalFields.MapperModelUpdateFields(user.UserId, answerCreate.ItemId, input.CaseType);
+            List<UpdateFields> listAdditionalFields = input.AdditionalFields.MapperModelUpdateFields(Principal.User().UserId, answerCreate.ItemId, input.CaseType);
 
             string uriUpdateFields = ConfigurationService.UrlUpdateAdditionalFields;
             string endpointFields = ConfigurationService.UrlServiceDesk + uriUpdateFields;
 
-            await ConnectionService.PostAsync(user.KeyAuthorizationAranda, endpointFields, listAdditionalFields);
+            await ConnectionService.PostAsync(Principal.User()?.KeyAuthorizationAranda, endpointFields, listAdditionalFields);
 
             return answerCreate;
         }
@@ -65,20 +71,20 @@ namespace Aranda.Connector.Api.Services
         /// <param name="input">Parámetros para solicitar información del caso a consultar</param>
         /// <param name="user">Usuario autenticado</param>
         /// <returns>información caso </returns>
-        public async Task<AnswerGetCaseApi> Get(InputGetCaseDto input, UserServiceDesk user)
+        public async Task<AnswerGetCaseApi> Get(InputGetCaseDto input)
         {
             UrlParameters parameterUrl = new UrlParameters
             {
                 itemType = input.CaseType,
                 idCase = input.CaseId,
-                userId = user.UserId,
+                userId = Principal.User()?.UserId,
                 level = input.LevelId
             };
 
             string uriGetCase = ConfigurationService.UrlGetCase.ConvertUrl(parameterUrl);
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
 
-            return await ConnectionService.GetAsync<AnswerGetCaseApi>(user.KeyAuthorizationAranda, endpoint);
+            return await ConnectionService.GetAsync<AnswerGetCaseApi>(Principal.User().KeyAuthorizationAranda, endpoint);
         }
 
         /// <summary>
@@ -87,13 +93,13 @@ namespace Aranda.Connector.Api.Services
         /// <param name="input">Parámetros para actualizar caso </param>
         /// <param name="user">Usuario autenticado</param>
         /// <returns>estado caso actualizado</returns>
-        public async Task<AnswerCreateCase> Update(InputUpdateCaseDto input, UserServiceDesk user)
+        public async Task<AnswerCreateCase> Update(InputUpdateCaseDto input)
         {
             UrlParameters parameterUrl = new UrlParameters
             {
                 itemType = input.CaseType,
                 idCase = input.CaseId,
-                userId = user.UserId,
+                userId = Principal.User()?.UserId,
             };
 
             string uriCreateCase = ConfigurationService.UrlUpdateCase.ConvertUrl(parameterUrl);
@@ -105,7 +111,7 @@ namespace Aranda.Connector.Api.Services
             listProperty.FillProperties(updateCase, true);
             listProperty.AddProperties(input.Dynamic);
 
-            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(user.KeyAuthorizationAranda, endpoint, listProperty);
+            List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User()?.KeyAuthorizationAranda, endpoint, listProperty);
 
             return answerApi.ConvertModel(new AnswerCreateCase());
         }

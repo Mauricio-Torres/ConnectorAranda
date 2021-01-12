@@ -2,13 +2,10 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Interface.IService;
-using Aranda.Connector.Api.Models;
-using Aranda.Connector.Api.Utils.Extensions;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Controllers
@@ -19,12 +16,10 @@ namespace Aranda.Connector.Api.Controllers
     public class ManagmentParametersController : ControllerBase
     {
         private readonly IManagmentParameters ManagmentParameters;
-        private readonly ClaimsPrincipal Principal;
 
-        public ManagmentParametersController(IPrincipal principal, IManagmentParameters managmentParameters)
+        public ManagmentParametersController(IManagmentParameters managmentParameters)
         {
             ManagmentParameters = managmentParameters;
-            Principal = principal as ClaimsPrincipal;
         }
 
         [HttpGet("Categories/{projectId}/{serviceId}")]
@@ -33,8 +28,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetCategory(user, serviceId, projectId));
+                actionResult = Ok(await ManagmentParameters.GetCategory(serviceId, projectId));
             }
             catch (Exception ex)
             {
@@ -50,8 +44,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetGroups(user, serviceId));
+                actionResult = Ok(await ManagmentParameters.GetGroups(serviceId));
             }
             catch (Exception ex)
             {
@@ -67,8 +60,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetItemType(user, categoryId, projectId));
+                actionResult = Ok(await ManagmentParameters.GetItemType(categoryId, projectId));
             }
             catch (Exception ex)
             {
@@ -84,8 +76,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetProyect(user));
+                actionResult = Ok(await ManagmentParameters.GetProyect());
             }
             catch (Exception ex)
             {
@@ -101,8 +92,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetRegistryType(user));
+                actionResult = Ok(await ManagmentParameters.GetRegistryType());
             }
             catch (Exception ex)
             {
@@ -118,8 +108,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetResponsible(user, groupId, projectId));
+                actionResult = Ok(await ManagmentParameters.GetResponsible(groupId, projectId));
             }
             catch (Exception ex)
             {
@@ -135,8 +124,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetServices(user, projectId));
+                actionResult = Ok(await ManagmentParameters.GetServices(projectId));
             }
             catch (Exception ex)
             {
@@ -152,8 +140,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetSLAs(user, serviceId, itemType));
+                actionResult = Ok(await ManagmentParameters.GetSLAs(serviceId, itemType));
             }
             catch (Exception ex)
             {
@@ -169,8 +156,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetState(user, itemType, projectId));
+                actionResult = Ok(await ManagmentParameters.GetState(itemType, projectId));
             }
             catch (Exception ex)
             {
@@ -186,8 +172,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetStateWhenUpdateCase(user, itemType));
+                actionResult = Ok(await ManagmentParameters.GetStateWhenUpdateCase(itemType));
             }
             catch (Exception ex)
             {
@@ -203,8 +188,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentParameters.GetUrgency(user));
+                actionResult = Ok(await ManagmentParameters.GetUrgency());
             }
             catch (Exception ex)
             {

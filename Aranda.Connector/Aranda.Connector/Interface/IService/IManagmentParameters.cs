@@ -9,26 +9,26 @@ namespace Aranda.Connector.Api.Interface.IService
 {
     public interface IManagmentParameters
     {
-        Task<AnswerParameters> GetCategory(UserServiceDesk user, int serviceId, int projectId);
+        Task<AnswerParameters> GetCategory( int serviceId, int projectId);
 
-        Task<AnswerParameters> GetGroups(UserServiceDesk user, int serviceId);
+        Task<AnswerParameters> GetGroups( int serviceId);
 
-        Task<AnswerParameters> GetItemType(UserServiceDesk user, int categoryId, int projectId);
+        Task<AnswerParameters> GetItemType( int categoryId, int projectId);
 
-        Task<AnswerParameters> GetProyect(UserServiceDesk user);
+        Task<AnswerParameters> GetProyect();
 
-        Task<AnswerParameters> GetRegistryType(UserServiceDesk user);
+        Task<AnswerParameters> GetRegistryType();
 
-        Task<AnswerParameters> GetResponsible(UserServiceDesk user, int groupId, int projectId);
+        Task<AnswerParameters> GetResponsible( int groupId, int projectId);
 
-        Task<AnswerParameters> GetServices(UserServiceDesk user, int projectId);
+        Task<AnswerParameters> GetServices( int projectId);
 
-        Task<AnswerParameters> GetSLAs(UserServiceDesk user, int serviceId, int itemType);
+        Task<AnswerParameters> GetSLAs( int serviceId, int itemType);
 
-        Task<AnswerParameters> GetState(UserServiceDesk user, int itemType, int projectId);
+        Task<AnswerParameters> GetState( int itemType, int projectId);
 
-        Task<AnswerParameters> GetStateWhenUpdateCase(UserServiceDesk user, int itemType);
+        Task<AnswerParameters> GetStateWhenUpdateCase( int itemType);
 
-        Task<AnswerParameters> GetUrgency(UserServiceDesk user);
+        Task<AnswerParameters> GetUrgency();
     }
 }

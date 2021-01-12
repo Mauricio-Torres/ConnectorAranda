@@ -2,8 +2,6 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Interface.IService;
-using Aranda.Connector.Api.Models;
-using Aranda.Connector.Api.Utils.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -33,8 +31,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentAdditionalFieldService.GetAdditionalField(user, projectId, itemType, categoryId, serviceId, stateId));
+                actionResult = Ok(await ManagmentAdditionalFieldService.GetAdditionalField(projectId, itemType, categoryId, serviceId, stateId));
             }
             catch (Exception ex)
             {
