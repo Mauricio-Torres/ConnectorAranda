@@ -16,11 +16,11 @@ namespace Aranda.Connector.Api.Services
 {
     public class ManagmentAdditionalFieldService : IManagmentAdditionalFieldService
     {
-        private readonly IConfigurationService ConfigurationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
         private readonly IConectionService ConnectionService;
         private readonly ClaimsPrincipal Principal;
 
-        public ManagmentAdditionalFieldService(IConfigurationService configurationService, IConectionService conectionService, IPrincipal principal)
+        public ManagmentAdditionalFieldService(IConfigurationEndPointService configurationService, IConectionService conectionService, IPrincipal principal)
         {
             ConfigurationService = configurationService;
             ConnectionService = conectionService;

@@ -17,11 +17,11 @@ namespace Aranda.Connector.Api.Services
 {
     public class ManagmentCaseService : IManagmentCaseService
     {
-        private readonly IConfigurationService ConfigurationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
         private readonly IConectionService ConnectionService;
         private readonly ClaimsPrincipal Principal;
 
-        public ManagmentCaseService(IConfigurationService configurationService,
+        public ManagmentCaseService(IConfigurationEndPointService configurationService,
                                     IConectionService conectionService,
                                     IPrincipal principal)
         {
@@ -47,7 +47,7 @@ namespace Aranda.Connector.Api.Services
             string endpoint = ConfigurationService.UrlServiceDesk + uriCreateCase;
 
             CreateCase createCase = input.MapperModelCreate();
-            createCase.AuthorId = Principal.User().UserId;
+            createCase.AuthorId = Principal.User().Id;
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(createCase, true);
@@ -55,7 +55,7 @@ namespace Aranda.Connector.Api.Services
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User().KeyAuthorization, endpoint, listProperty);
             AnswerCreateCase answerCreate = answerApi.ConvertModel(new AnswerCreateCase());
 
-            List<UpdateFields> listAdditionalFields = input.AdditionalFields.MapperModelUpdateFields(Principal.User().UserId, answerCreate.ItemId, input.CaseType);
+            List<UpdateFields> listAdditionalFields = input.AdditionalFields.MapperModelUpdateFields(Principal.User().Id, answerCreate.ItemId, input.CaseType);
 
             string uriUpdateFields = ConfigurationService.UrlUpdateAdditionalFields;
             string endpointFields = ConfigurationService.UrlServiceDesk + uriUpdateFields;
@@ -77,7 +77,7 @@ namespace Aranda.Connector.Api.Services
             {
                 itemType = input.CaseType,
                 idCase = input.CaseId,
-                userId = Principal.User()?.UserId,
+                userId = Principal.User()?.Id,
                 level = input.LevelId
             };
 
@@ -99,7 +99,7 @@ namespace Aranda.Connector.Api.Services
             {
                 itemType = input.CaseType,
                 idCase = input.CaseId,
-                userId = Principal.User()?.UserId,
+                userId = Principal.User()?.Id,
             };
 
             string uriCreateCase = ConfigurationService.UrlUpdateCase.ConvertUrl(parameterUrl);
@@ -109,7 +109,8 @@ namespace Aranda.Connector.Api.Services
 
             List<AnswerApi> listProperty = new List<AnswerApi>();
             listProperty.FillProperties(updateCase, true);
-            listProperty.AddProperties(input.Dynamic);
+
+            // listProperty.AddProperties(input.Dynamic);
 
             List<AnswerApi> answerApi = await ConnectionService.PostAsync<List<AnswerApi>>(Principal.User()?.KeyAuthorization, endpoint, listProperty);
 

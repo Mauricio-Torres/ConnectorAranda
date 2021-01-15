@@ -14,11 +14,11 @@ namespace Aranda.Connector.Api.Services
 {
     public class ManagmentParametersServices : IManagmentParameters
     {
-        private readonly IConfigurationService ConfigurationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
         private readonly IConectionService ConnectionService;
         private readonly ClaimsPrincipal Principal;
 
-        public ManagmentParametersServices(IConfigurationService configurationService,
+        public ManagmentParametersServices(IConfigurationEndPointService configurationService,
                                            IConectionService conectionService,
                                            IPrincipal principal)
         {
@@ -69,7 +69,7 @@ namespace Aranda.Connector.Api.Services
         {
             string uriGetCase = ConfigurationService.UrlProyects.ConvertUrl(new UrlParameters
             {
-                userId = Principal.User().UserId
+                userId = Principal.User().Id
             });
 
             string endpoint = ConfigurationService.UrlServiceDesk + uriGetCase;
@@ -102,7 +102,7 @@ namespace Aranda.Connector.Api.Services
         {
             string uriGetCase = ConfigurationService.UrlServices.ConvertUrl(new UrlParameters
             {
-                userId = Principal.User().UserId,
+                userId = Principal.User().Id,
                 projectId = projectId
             });
 

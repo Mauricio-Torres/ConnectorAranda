@@ -10,13 +10,13 @@ namespace Aranda.Connector.Api.Services
     /// <summary>
     /// Retorna los parámetros de configuración de la aplicación
     /// </summary>
-    public class ConfigurationService : IConfigurationService
+    public class ConfigurationEndPointService : IConfigurationEndPointService
     {
         private readonly IConfiguration Configuration;
 
         private string urlServiceDesk;
 
-        public ConfigurationService(IConfiguration configuration)
+        public ConfigurationEndPointService(IConfiguration configuration)
         {
             Configuration = configuration;
         }

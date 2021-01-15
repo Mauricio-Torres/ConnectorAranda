@@ -56,9 +56,3 @@ namespace Aranda.Connector.Api.Models.Input
         public int? UrgencyId { set; get; }
     }
 }
-
-// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeSlaId)]
-// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeServiceId)]
-// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeRegistryTypeId)]
-// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeGroupId)]
-// [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeCategoryId)]

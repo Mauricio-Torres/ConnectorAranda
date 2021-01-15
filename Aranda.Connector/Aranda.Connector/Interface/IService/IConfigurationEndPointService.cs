@@ -7,7 +7,7 @@ namespace Aranda.Connector.Api.Interface.IService
     /// <summary>
     /// Retorna los parámetros de configuración de la aplicación
     /// </summary>
-    public interface IConfigurationService
+    public interface IConfigurationEndPointService
     {
         /// <summary>
         /// Campos adicionales básicos

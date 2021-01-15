@@ -5,7 +5,7 @@ namespace Aranda.Connector.Api.Models
 {
     public class UserServiceDesk
     {
+        public int Id { set; get; }
         public string KeyAuthorization { set; get; }
-        public int UserId { set; get; }
     }
 }

@@ -2,7 +2,6 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Helpers;
-using Aranda.Connector.Api.Models.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +10,8 @@ namespace Aranda.Connector.Api.Models.Input
 {
     public class InputUpdateCaseDto
     {
+        public List<InputAdditionalFields> AdditionalFields { set; get; }
+
         [Required(ErrorMessage = Constants.RequiredCaseId)]
         [Range(1, long.MaxValue, ErrorMessage = Constants.InvalidRangeCasetype)]
         public long CaseId { set; get; }
@@ -23,7 +24,6 @@ namespace Aranda.Connector.Api.Models.Input
         public int? CompanyId { set; get; }
         public int? CustomerId { set; get; }
         public string Description { set; get; }
-        public List<AnswerApi> Dynamic { set; get; }
         public int? GroupId { set; get; }
         public int? ImpactId { set; get; }
         public int? ProjectId { set; get; } // no modifica

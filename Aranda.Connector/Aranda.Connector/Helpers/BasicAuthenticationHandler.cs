@@ -21,14 +21,14 @@ namespace Aranda.Connector.Api.Helpers
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IAuthenticationArandaService AuthenticationService;
-        private readonly IConfigurationService ConfigurationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
 
         public BasicAuthenticationHandler(
            IOptionsMonitor<AuthenticationSchemeOptions> options,
            UrlEncoder encoder,
            ILoggerFactory logger,
            ISystemClock clock,
-           IConfigurationService configurationService,
+           IConfigurationEndPointService configurationService,
            IAuthenticationArandaService authenticationService)
            : base(options, logger, encoder, clock)
         {

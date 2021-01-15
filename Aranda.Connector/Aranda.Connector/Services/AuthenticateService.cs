@@ -14,9 +14,9 @@ namespace Aranda.Connector.Api.Services
     public class AuthenticateService : IAuthenticationArandaService
     {
         private readonly IConectionService ConectionService;
-        private readonly IConfigurationService ConfigurationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
 
-        public AuthenticateService(IConectionService conectionService, IConfigurationService configurationService)
+        public AuthenticateService(IConectionService conectionService, IConfigurationEndPointService configurationService)
         {
             ConectionService = conectionService;
             ConfigurationService = configurationService;
