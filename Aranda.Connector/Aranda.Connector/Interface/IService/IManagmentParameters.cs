@@ -2,16 +2,33 @@
 // © Todos los derechos reservados
 // </copyright>
 using Aranda.Connector.Api.Models;
+using Aranda.Connector.Api.Models.ResponseApi;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Interface.IService
 {
     public interface IManagmentParameters
     {
-        Task<ResponseParameters> GetCategory(UserServiceDesk user, int serviceId, int projectId);
+        Task<AnswerParameters> GetCategory( int serviceId, int projectId);
 
-        Task<ResponseParameters> GetProyect(UserServiceDesk user);
+        Task<AnswerParameters> GetGroups( int serviceId);
 
-        Task<ResponseParameters> GetServices(UserServiceDesk user, int projectId);
+        Task<AnswerParameters> GetItemType( int categoryId, int projectId);
+
+        Task<AnswerParameters> GetProyect();
+
+        Task<AnswerParameters> GetRegistryType();
+
+        Task<AnswerParameters> GetResponsible( int groupId, int projectId);
+
+        Task<AnswerParameters> GetServices( int projectId);
+
+        Task<AnswerParameters> GetSLAs( int serviceId, int itemType);
+
+        Task<AnswerParameters> GetState( int itemType, int projectId);
+
+        Task<AnswerParameters> GetStateWhenUpdateCase( int itemType);
+
+        Task<AnswerParameters> GetUrgency();
     }
 }

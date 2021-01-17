@@ -1,15 +1,11 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Helpers;
 using Aranda.Connector.Api.Interface.IService;
-using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.Input;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Controllers
@@ -20,12 +16,10 @@ namespace Aranda.Connector.Api.Controllers
     public class ManagmentCaseController : ControllerBase
     {
         private readonly IManagmentCaseService ManagmentService;
-        private readonly ClaimsPrincipal Principal;
 
-        public ManagmentCaseController(IPrincipal principal, IManagmentCaseService managmentCaseService)
+        public ManagmentCaseController(IManagmentCaseService managmentCaseService)
         {
             ManagmentService = managmentCaseService;
-            Principal = principal as ClaimsPrincipal;
         }
 
         /// <summary>
@@ -39,8 +33,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.Create(inputCreateCase, user));
+                actionResult = Ok(await ManagmentService.Create(inputCreateCase));
             }
             catch (Exception ex)
             {
@@ -61,8 +54,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.Get(inputGetCase, user));
+                actionResult = Ok(await ManagmentService.Get(inputGetCase));
             }
             catch (Exception ex)
             {
@@ -83,8 +75,7 @@ namespace Aranda.Connector.Api.Controllers
             IActionResult actionResult;
             try
             {
-                UserServiceDesk user = Principal.User();
-                actionResult = Ok(await ManagmentService.Update(inputUpdateCase, user));
+                actionResult = Ok(await ManagmentService.Update(inputUpdateCase));
             }
             catch (Exception ex)
             {

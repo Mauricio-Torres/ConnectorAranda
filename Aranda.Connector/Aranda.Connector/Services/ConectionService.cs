@@ -73,6 +73,20 @@ namespace Aranda.Connector.Api.Utils
             }
         }
 
+        public async Task PostAsync(string Token, string restUrl, object data = null)
+        {
+            Initialization(restUrl, Token);
+
+            restRequest.AddJsonBody(data);
+
+            response = await restClient.ExecutePostAsync(restRequest);
+
+            if (!response.StatusCode.Equals(HttpStatusCode.OK))
+            {
+                throw new CustomException(string.IsNullOrWhiteSpace(response.Content) ? Constants.ErrorServer : response.Content);
+            }
+        }
+
         /// <summary>
         /// Establece la configuración inicial para realizar peticiones HTTP
         /// </summary>

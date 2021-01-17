@@ -4,6 +4,7 @@
 using Aranda.Connector.Api.Interface.IService;
 using Aranda.Connector.Api.Models.ConvertDataApi;
 using Aranda.Connector.Api.Models.Input;
+using Aranda.Connector.Api.Utils.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
@@ -20,16 +21,19 @@ namespace Aranda.Connector.Api.Helpers
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IAuthenticationArandaService AuthenticationService;
+        private readonly IConfigurationEndPointService ConfigurationService;
 
         public BasicAuthenticationHandler(
            IOptionsMonitor<AuthenticationSchemeOptions> options,
            UrlEncoder encoder,
            ILoggerFactory logger,
            ISystemClock clock,
+           IConfigurationEndPointService configurationService,
            IAuthenticationArandaService authenticationService)
            : base(options, logger, encoder, clock)
         {
             AuthenticationService = authenticationService;
+            ConfigurationService = configurationService;
         }
 
         /// <summary>
@@ -42,7 +46,7 @@ namespace Aranda.Connector.Api.Helpers
 
             try
             {
-                var urlBase = "";//Request.Headers["urlBase"].ToString()?.ValidationUrl();
+                ConfigurationService.UrlServiceDesk = Request.Headers["urlBase"].ToString()?.ValidationUrl();
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
@@ -53,12 +57,11 @@ namespace Aranda.Connector.Api.Helpers
                     username = credentials[0]
                 };
 
-                AnswerAuthentication user = await AuthenticationService.Authenticate(inputAuthenticateDto, urlBase);
+                AnswerAuthentication user = await AuthenticationService.Authenticate(inputAuthenticateDto);
 
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(Constants.TypeClaimsTokenServiceDesk, user.SessionId),
-                    new Claim(Constants.TypeClaimsIdUser, user.UserId.ToString()),
-                    new Claim(Constants.TypeClaimsUrlBase, urlBase)
+                    new Claim(Constants.TypeClaimsIdUser, user.UserId.ToString())
                 }, "BasicAuthentication");
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);

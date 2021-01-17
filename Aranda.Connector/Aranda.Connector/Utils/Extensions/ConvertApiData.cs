@@ -1,15 +1,13 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Models;
 using Aranda.Connector.Api.Models.Response;
-using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Aranda.Connector.Api.Utils
+namespace Aranda.Connector.Api.Utils.Extensions
 {
     public static class ExtensionConvers
     {
@@ -96,26 +94,6 @@ namespace Aranda.Connector.Api.Utils
         }
 
         /// <summary>
-        /// Reemplaza los valores correspondientes al id del caso, tipo de caso, id de usuario,
-        /// nivel de información del caso a consultar
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="caseType">Tipo de caso</param>
-        /// <param name="caseId">Id del caso </param>
-        /// <param name="userId">Id usuario autenticado</param>
-        /// <param name="level">Nivel de profundidad en la especificación del caso a consultar (bajo, medio, alto)</param>
-        /// <returns>endpoint modificado</returns>
-        public static string ConvertUrl(this string url, int? caseType = null, long? caseId = null, int? userId = null, int? level = null, int? projectId = null, int? serviceId = null)
-        {
-            return url.Replace("{itemType}", caseType.ToString())
-                      .Replace("{idCase}", caseId.ToString())
-                      .Replace("{userId}", userId.ToString())
-                      .Replace("{projectId}", projectId.ToString())
-                      .Replace("{serviceId}", serviceId.ToString())
-                      .Replace("{level}", level.ToString());
-        }
-
-        /// <summary>
         /// Convierte los datos enviados desde la interfaz de implementación en los datos aceptados por la api de Service Desk
         /// </summary>
         /// <param name="tmodelObj">Clase que se desea transformar</param>
@@ -163,69 +141,6 @@ namespace Aranda.Connector.Api.Utils
             }
 
             return requestApis;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <typeparam name="TModel"></typeparam>
-        /// <param name="listData"></param>
-        /// <returns></returns>
-        public static List<Parameters> MapperModel<TModel>(this List<TModel> listData) where TModel : class
-        {
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, Parameters>());
-            Mapper mapper = new Mapper(config);
-
-            List<Parameters> listParameters = new List<Parameters>();
-            foreach (var item in listData)
-            {
-                listParameters.Add(mapper.Map<TModel, Parameters>(item));
-            }
-
-            return listParameters;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <typeparam name="TModel"></typeparam>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public static CreateCase MapperModelCreate<TModel>(this TModel model) where TModel : class
-        {
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, CreateCase>());
-            Mapper mapper = new Mapper(config);
-
-            return mapper.Map<TModel, CreateCase>(model);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <typeparam name="TModel"></typeparam>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public static UpdateCase MapperModelUodate<TModel>(this TModel model) where TModel : class
-        {
-            MapperConfiguration config = new MapperConfiguration(mc => mc.CreateMap<TModel, UpdateCase>());
-            Mapper mapper = new Mapper(config);
-
-            return mapper.Map<TModel, UpdateCase>(model);
-        }
-
-        /// <summary>
-        /// Valida endpoint ingresado
-        /// </summary>
-        /// <param name="urlServiceDesk">endpoint Service Desk</param>
-        /// <returns></returns>
-        public static string ValidationUrl(this string urlServiceDesk)
-        {
-            if (!string.IsNullOrWhiteSpace(urlServiceDesk) && !urlServiceDesk.EndsWith('/'))
-            {
-                urlServiceDesk = urlServiceDesk + '/';
-            }
-
-            return urlServiceDesk;
         }
     }
 

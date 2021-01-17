@@ -3,9 +3,9 @@
 // </copyright>
 using System.Collections.Generic;
 
-namespace Aranda.Connector.Api.Models
+namespace Aranda.Connector.Api.Models.ResponseApi
 {
-    public class ResponseParameters
+    public class AnswerParameters
     {
         public List<Parameters> Parameters { set; get; }
     }
