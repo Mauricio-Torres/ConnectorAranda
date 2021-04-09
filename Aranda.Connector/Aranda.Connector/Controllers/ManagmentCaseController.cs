@@ -1,8 +1,9 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Interface.IService;
-using Aranda.Connector.Api.Models.Input;
+using Aranda.ASDK.Connector.Service.Interface.IService;
+using Aranda.ASDK.Data.Objects.Models.Input.ASDK_V8;
+using Aranda.ASDK.Data.Objects.Models.Output.ASDK_V8;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,14 +24,14 @@ namespace Aranda.Connector.Api.Controllers
         }
 
         /// <summary>
-        /// Crea caso
+        /// Crear caso en Service Desk V8
         /// </summary>
         /// <param name="inputCreateCase"></param>
-        /// <returns></returns>
+        /// <returns>Información del caso</returns>
         [HttpPost("Create")]
-        public async Task<IActionResult> Create(InputCreateCaseDto inputCreateCase)
+        public async Task<ActionResult<OutputResponseCaseAsdkV8Dto>> Create(InputCreateCaseAsdkV8Dto inputCreateCase)
         {
-            IActionResult actionResult;
+            ActionResult<OutputResponseCaseAsdkV8Dto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentService.Create(inputCreateCase));
@@ -47,11 +48,11 @@ namespace Aranda.Connector.Api.Controllers
         /// Consulta información caso
         /// </summary>
         /// <param name="inputGetCase"></param>
-        /// <returns></returns>
+        /// <returns>Información completa del caso</returns>
         [HttpPost("Get")]
-        public async Task<IActionResult> Get(InputGetCaseDto inputGetCase)
+        public async Task<ActionResult<OutputGetCaseAsdkV8Dto>> Get(InputGetCaseDto inputGetCase)
         {
-            IActionResult actionResult;
+            ActionResult<OutputGetCaseAsdkV8Dto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentService.Get(inputGetCase));
@@ -68,11 +69,11 @@ namespace Aranda.Connector.Api.Controllers
         /// Actualiza caso
         /// </summary>
         /// <param name="inputUpdateCase"></param>
-        /// <returns></returns>
+        /// <returns>Información del caso</returns>
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(InputUpdateCaseDto inputUpdateCase)
+        public async Task<ActionResult<OutputResponseCaseAsdkV8Dto>> Update(InputUpdateCaseDto inputUpdateCase)
         {
-            IActionResult actionResult;
+            ActionResult<OutputResponseCaseAsdkV8Dto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentService.Update(inputUpdateCase));

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aranda.Connector.Api", "Aranda.Connector\Aranda.Connector.Api.csproj", "{EB2006B5-58FB-4C06-A5D4-10926615BF48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aranda.Connector.Api", "Aranda.Connector\Aranda.Connector.Api.csproj", "{EB2006B5-58FB-4C06-A5D4-10926615BF48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aranda.ASDK.Data.Objects", "Aranda.ASDK.Data.Objects\Aranda.ASDK.Data.Objects.csproj", "{F9EBA7AF-06B6-4B42-8C52-544A52875C23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aranda.ASDK.Connector.Service", "Aranda.ASDK.Conector.Service\Aranda.ASDK.Connector.Service.csproj", "{BF9BD4C5-1008-422D-8855-BB156755C7CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aranda.ASDK.Connector.V9", "Aranda.ASDK.Connector.V9\Aranda.ASDK.Connector.V9.csproj", "{20A79977-B3A2-4399-A8BC-5B5CBE09F8AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB2006B5-58FB-4C06-A5D4-10926615BF48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9EBA7AF-06B6-4B42-8C52-544A52875C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9EBA7AF-06B6-4B42-8C52-544A52875C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9EBA7AF-06B6-4B42-8C52-544A52875C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9EBA7AF-06B6-4B42-8C52-544A52875C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF9BD4C5-1008-422D-8855-BB156755C7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF9BD4C5-1008-422D-8855-BB156755C7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF9BD4C5-1008-422D-8855-BB156755C7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF9BD4C5-1008-422D-8855-BB156755C7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A79977-B3A2-4399-A8BC-5B5CBE09F8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A79977-B3A2-4399-A8BC-5B5CBE09F8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A79977-B3A2-4399-A8BC-5B5CBE09F8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A79977-B3A2-4399-A8BC-5B5CBE09F8AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

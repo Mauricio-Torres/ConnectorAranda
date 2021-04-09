@@ -1,0 +1,53 @@
+{
+    "properties": {
+      "capabilities": [],
+      "connectionParameters": {
+        "hostUrl": {
+          "type": "string",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": true,
+              "required": "true",
+              "tabIndex": 0
+            },
+            "description": "Url de Conector",
+            "displayName": "Url personalizada del conector",
+            "tooltip": "Url personalizada del conector"
+          }
+        },
+        "Autorizathion": {
+          "type": "string",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": true,
+              "required": "true",
+              "tabIndex": 1
+            },
+            "description": "Token Autorizacion",
+            "displayName": "Token Autorizacion",
+            "tooltip": "Token Autorizacion"
+          }
+        }
+      },
+      "iconBrandColor": "#ff5c10",
+      "policyTemplateInstances": [ 
+        {
+            "parameters": {
+              "x-ms-apimTemplateParameter.urlTemplate": "@connectionParameters('hostUrl')"
+            },
+            "templateId": "dynamichosturl",
+            "title": "Url Host"
+       },
+       {
+        "templateId": "setheader",
+        "title": "Set Autorizathion Service Desk",
+        "parameters": {
+          "x-ms-apimTemplateParameter.name": "token",
+          "x-ms-apimTemplateParameter.value": "@connectionParameters('Autorizathion')",
+          "x-ms-apimTemplateParameter.existsAction": "append",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      }       
+      ]
+    }
+  }

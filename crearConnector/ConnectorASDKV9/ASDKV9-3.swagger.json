@@ -1,0 +1,1081 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ASDKV9-1",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "host",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/api/asdkv9/managmentCase/create": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "idByProject": {
+                  "type": "string",
+                  "description": "idByProject"
+                }
+              }
+            }
+          }
+        },
+        "summary": "crear caso service desk v9",
+        "description": "crear caso service desk",
+        "operationId": "CreateCase",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemType": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "itemType",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetItemType",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name"
+                  }
+                },
+                "projectId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "projectId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetProject",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name"
+                  }
+                },
+                "serviceId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "serviceId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetServices",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameter": "projectId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetServices",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameterReference": "body/projectId"
+                      }
+                    }
+                  }
+                },
+                "categoryId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "categoryId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetCategory",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameter": "itemType"
+                      },
+                      "serviceId": {
+                        "parameter": "serviceId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetCategory",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameterReference": "body/itemType"
+                      },
+                      "serviceId": {
+                        "parameterReference": "body/serviceId"
+                      }
+                    }
+                  }
+                },
+                "stateId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "stateId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetStates",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameter": "itemType"
+                      },
+                      "categoryId": {
+                        "parameter": "categoryId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetStates",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameterReference": "body/itemType"
+                      },
+                      "categoryId": {
+                        "parameterReference": "body/categoryId"
+                      }
+                    }
+                  }
+                },
+                "reasonId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "reasonId"
+                },
+                "ciId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "ciId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetCIs",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameter": "projectId"
+                      },
+                      "itemType": {
+                        "parameter": "itemType"
+                      },
+                      "serviceId": {
+                        "parameter": "serviceId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetCIs",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameterReference": "body/projectId"
+                      },
+                      "itemType": {
+                        "parameterReference": "body/itemType"
+                      },
+                      "serviceId": {
+                        "parameterReference": "body/serviceId"
+                      }
+                    }
+                  }
+                },
+                "companyId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "companyId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetCompany",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameter": "itemType"
+                      },
+                      "projectId": {
+                        "parameter": "projectId"
+                      },
+                      "serviceId": {
+                        "parameter": "serviceId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetCompany",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameterReference": "body/itemType"
+                      },
+                      "projectId": {
+                        "parameterReference": "body/projectId"
+                      },
+                      "serviceId": {
+                        "parameterReference": "body/serviceId"
+                      }
+                    }
+                  }
+                },
+                "customerId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "customerId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetCustomers",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameter": "itemType"
+                      },
+                      "projectId": {
+                        "parameter": "projectId"
+                      },
+                      "serviceId": {
+                        "parameter": "serviceId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetCustomers",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "itemType": {
+                        "parameterReference": "body/itemType"
+                      },
+                      "projectId": {
+                        "parameterReference": "body/projectId"
+                      },
+                      "serviceId": {
+                        "parameterReference": "body/serviceId"
+                      }
+                    }
+                  }
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "groupId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "groupId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetGroups",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "stateId": {
+                        "parameter": "stateId"
+                      },
+                      "serviceId": {
+                        "parameter": "serviceId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetGroups",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "stateId": {
+                        "parameterReference": "body/stateId"
+                      },
+                      "serviceId": {
+                        "parameterReference": "body/serviceId"
+                      }
+                    }
+                  }
+                },
+                "responsibleId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "responsibleId",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetResponsible",
+                    "value-path": "id",
+                    "value-collection": "parameters",
+                    "value-title": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameter": "projectId"
+                      },
+                      "groupId": {
+                        "parameter": "groupId"
+                      }
+                    }
+                  },
+                  "x-ms-dynamic-list": {
+                    "operationId": "GetResponsible",
+                    "itemsPath": "parameters",
+                    "itemValuePath": "id",
+                    "itemTitlePath": "name",
+                    "parameters": {
+                      "projectId": {
+                        "parameterReference": "body/projectId"
+                      },
+                      "groupId": {
+                        "parameterReference": "body/groupId"
+                      }
+                    }
+                  }
+                },
+                "registryTypeId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "registryTypeId"
+                },
+                
+                
+                "slaId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "slaId"
+                },
+                
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                
+                
+                "cause": {
+                  "type": "string",
+                  "description": "cause"
+                },
+                "commentary": {
+                  "type": "string",
+                  "description": "commentary"
+                },
+                "commentaryNoHtml": {
+                  "type": "string",
+                  "description": "commentaryNoHtml"
+                },
+                "descriptionNoHtml": {
+                  "type": "string",
+                  "description": "descriptionNoHtml"
+                },
+                "urgencyId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "urgencyId"
+                },
+                "impactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "impactId"
+                },
+                "priorityId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "priorityId"
+                },
+                "itemVersion": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "itemVersion"
+                },
+                "olaId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "olaId"
+                },
+                
+                "providerId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "providerId"
+                },
+                "ucId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "ucId"
+                },
+                "unitId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "unitId"
+                },
+                "additionalFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "advancedFieldId": {
+                        "type": "string",
+                        "description": "advancedFieldId",
+                        "title": "",
+                        "x-ms-dynamic-values": {
+                          "operationId": "GetAdditionalFields",
+                          "value-path": "id",
+                          "value-collection": "parameters",
+                          "value-title": "name",
+                          "parameters": {
+                            "itemType": {
+                              "parameter": "itemType"
+                            },
+                            "stateId": {
+                              "parameter": "stateId"
+                            },
+                            "categoryId": {
+                              "parameter": "categoryId"
+                            }
+                          }
+                        },
+                        "x-ms-dynamic-list": {
+                          "operationId": "GetAdditionalFields",
+                          "itemsPath": "parameters",
+                          "itemValuePath": "id",
+                          "itemTitlePath": "name",
+                          "parameters": {
+                            "itemType": {
+                              "parameterReference": "body/itemType"
+                            },
+                            "stateId": {
+                              "parameterReference": "body/stateId"
+                            },
+                            "categoryId": {
+                              "parameterReference": "body/categoryId"
+                            }
+                          }
+                        }
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "additionalFields"
+                }
+              },
+              "required": [
+                "projectId"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/api/asdkv9/additionalFields/{itemType}/{stateId}/{categoryId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Campos Adicionales",
+        "description": "Campos adicionales",
+        "operationId": "GetAdditionalFields",
+        "x-ms-visibility": "internal",
+        "parameters": [
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "stateId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ]
+      }
+    },
+    "/api/asdkv9/parameters/projects": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Proyectos del Usuario",
+        "description": "Proyectos del Usuario",
+        "operationId": "GetProject",
+        "parameters": [],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/itemType": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Tipo de caso",
+        "description": "Tipo de caso",
+        "operationId": "GetItemType",
+        "parameters": [],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/categories/{itemType}/{serviceId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Categorías por servicio",
+        "description": "Categorías por servicio",
+        "operationId": "GetCategory",
+        "parameters": [
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serviceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/services/{projectId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Servicios",
+        "description": "Servicios",
+        "operationId": "GetServices",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/groupsByState/{stateId}/{serviceId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Grupos asociados al proyecto",
+        "description": "Grupos asociados al proyecto",
+        "operationId": "GetGroups",
+        "parameters": [
+          {
+            "name": "stateId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serviceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/states/{itemType}/{categoryId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Estados por categoría",
+        "description": "Estados por categoría",
+        "operationId": "GetStates",
+        "parameters": [
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/responsible/{projectId}/{groupId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Responsable por grupo",
+        "description": "Responsable por grupo",
+        "operationId": "GetResponsible",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/cis/{projectId}/{itemType}/{serviceId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "CIs por servicio",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serviceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "operationId": "GetCIs",
+        "description": "CIs por servicio",
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/customers/{itemType}/{projectId}/{serviceId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Clientes",
+        "description": "Clientes",
+        "operationId": "GetCustomers",
+        "parameters": [
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serviceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    },
+    "/api/asdkv9/parameters/companies/{itemType}/{projectId}/{serviceId}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    }
+                  },
+                  "description": "parameters"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Compañías por servicio",
+        "description": "Compañías por servicio",
+        "operationId": "GetCompany",
+        "parameters": [
+          {
+            "name": "itemType",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serviceId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "x-ms-visibility": "internal"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "Clave de API": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token"
+    }
+  },
+  "security": [
+    {
+      "Clave de API": []
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,27 @@
+https://docs.microsoft.com/en-us/connectors/custom-connectors/paconn-cli
+
+paconn login
+paconn create --api-prop C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\crearConnector\ConnectorASDKV9\apiProperties.json --api-def C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\crearConnector\ConnectorASDKV9\ASDKV9-3.swagger.json
+
+
+http://mv-ig.southcentralus.cloudapp.azure.com/ASDKAPI/
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+				INFORMACION SOBRE CONECTORES
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+https://github.com/microsoft/PowerPlatformConnectors/tree/dev/custom-connectors
+
+
+
+https://docs.microsoft.com/en-us/connectors/custom-connectors/openapi-extensions
+https://stackoverflow.com/questions/59940432/how-to-set-http-header-in-ms-power-automate-flow-custom-connector-using-policy
+
+https://www.schaeflein.net/using-dynamic-values-in-microsoft-flow/
+
+
+

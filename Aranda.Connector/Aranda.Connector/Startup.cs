@@ -1,8 +1,9 @@
 // <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Helpers;
-using Aranda.Connector.Api.Utils;
+using Aranda.ASDK.Connector.Service.DependencyInjection;
+using Aranda.ASDK.Data.Objects.Utils;
+using Aranda.Connector.Api.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -63,6 +64,9 @@ namespace Aranda.Connector
         {
             DependencyInjection.Dependency(services);
 
+            IConfigurationSection sec = Configuration.GetSection("ServiceDesk");
+            services.Configure<Settings>(sec);
+
             services.AddDistributedMemoryCache();
 
             services.AddCors(
@@ -79,9 +83,9 @@ namespace Aranda.Connector
                       .AllowCredentials()
               )
           );
-            services.AddAuthentication("BasicAuthentication").
+            services.AddAuthentication(Constants.BasicAuthentication).
             AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>
-            ("BasicAuthentication", null);
+            (Constants.BasicAuthentication, null);
 
             services.AddControllers();
 

@@ -1,0 +1,80 @@
+{
+    "properties": {
+      "capabilities": [],
+      "connectionParameters": {
+        "urlServiceDesk": {
+          "type": "string",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": true,
+              "required": "true",
+              "tabIndex": 0
+            },
+            "description": "Url de Service Desk",
+            "displayName": "Endpoin de Service Desk",
+            "tooltip": "Url endpoint Service Desk"
+          }
+        },
+        "hostUrl": {
+          "type": "string",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": true,
+              "required": "true",
+              "tabIndex": 1
+            },
+            "description": "Url de Conector",
+            "displayName": "Url personalizada del conector",
+            "tooltip": "Url personalizada del conector"
+          }
+        },
+        "username": {
+          "type": "string",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": true,
+              "required": "true",
+              "tabIndex": 2
+            },
+            "description": "Your username",
+            "displayName": "Username",
+            "tooltip": "Provide your username"
+          }
+        },
+        "password": {
+          "type": "securestring",
+          "uiDefinition": {
+            "constraints": {
+              "clearText": false,
+              "required": "true",
+              "tabIndex": 3
+            },
+            "description": "Your password",
+            "displayName": "Password",
+            "tooltip": "Provide your password"
+          }
+        }
+      },
+      "iconBrandColor": "#ff5c10",
+      "policyTemplateInstances": [ 
+        {
+            "parameters": {
+              "x-ms-apimTemplateParameter.urlTemplate": "@connectionParameters('hostUrl')"
+            },
+            "templateId": "dynamichosturl",
+            "title": "Url Host"
+       },
+
+       {
+        "templateId": "setheader",
+        "title": "Set Url Service Desk header",
+        "parameters": {
+          "x-ms-apimTemplateParameter.name": "urlBase",
+          "x-ms-apimTemplateParameter.value": "@connectionParameters('urlServiceDesk')",
+          "x-ms-apimTemplateParameter.existsAction": "append",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      }
+      ]
+    }
+  }

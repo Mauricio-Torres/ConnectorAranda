@@ -1,0 +1,12 @@
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\bin\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.deps.json
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\bin\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.dll
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\bin\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.pdb
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\bin\Release\netcoreapp3.1\Aranda.ASDK.Data.Objects.dll
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\bin\Release\netcoreapp3.1\Aranda.ASDK.Data.Objects.pdb
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.csprojAssemblyReference.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.AssemblyInfoInputs.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.AssemblyInfo.cs
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.csproj.CopyComplete
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.dll
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Conector.Service\obj\Release\netcoreapp3.1\Aranda.ASDK.Connector.Service.pdb

@@ -1,0 +1,9 @@
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\bin\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.deps.json
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\bin\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.dll
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\bin\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.pdb
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.csprojAssemblyReference.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.AssemblyInfoInputs.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.AssemblyInfo.cs
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.csproj.CoreCompileInputs.cache
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.dll
+C:\Users\Mauricio\Documents\Aranda\ConectorServiceDesk\Aranda.Connector\Aranda.ASDK.Data.Objects\obj\Debug\netcoreapp3.1\Aranda.ASDK.Data.Objects.pdb

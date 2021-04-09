@@ -1,8 +1,8 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Interface.IService;
-
+using Aranda.ASDK.Connector.Service.Interface.IService;
+using Aranda.ASDK.Data.Objects.Models.ResponseApi;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,10 +22,36 @@ namespace Aranda.Connector.Api.Controllers
             ManagmentParameters = managmentParameters;
         }
 
-        [HttpGet("Categories/{projectId}/{serviceId}")]
-        public async Task<IActionResult> Categories(int projectId, int serviceId)
+        /// <summary>
+        /// Tipo de caso
+        /// </summary>
+        /// <returns>tipos de caso</returns>
+        [HttpGet("AllItemType")]
+        public ActionResult<OutputParametersDto> AllItemType()
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
+            try
+            {
+                actionResult = Ok(ManagmentParameters.GetAllItemType());
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        /// <summary>
+        /// Categorías asociadas al proyecto y servicio
+        /// </summary>
+        /// <param name="projectId">Id de proyecto</param>
+        /// <param name="serviceId">Id de servicio</param>
+        /// <returns></returns>
+        [HttpGet("Categories/{projectId:int?}/{serviceId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> Categories(int projectId = 0, int serviceId = 0)
+        {
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetCategory(serviceId, projectId));
@@ -38,10 +64,15 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("Group/{serviceId}")]
-        public async Task<IActionResult> Group(int serviceId)
+        /// <summary>
+        /// Grupos asociados al servicio
+        /// </summary>
+        /// <param name="serviceId">Id del servicio</param>
+        /// <returns></returns>
+        [HttpGet("Group/{serviceId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> Group(int serviceId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetGroups(serviceId));
@@ -54,10 +85,16 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("ItemType/{categoryId}/{projectId}")]
-        public async Task<IActionResult> ItemType(int categoryId, int projectId)
+        /// <summary>
+        /// Tipo de caso según el proyecto seleccionado y su categoría
+        /// </summary>
+        /// <param name="categoryId">Id de categoría</param>
+        /// <param name="projectId">Id del proyecto</param>
+        /// <returns></returns>
+        [HttpGet("ItemType/{categoryId:int?}/{projectId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> ItemType(int categoryId = 0, int projectId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetItemType(categoryId, projectId));
@@ -70,10 +107,34 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("Projects")]
-        public async Task<IActionResult> Projects()
+        /// <summary>
+        /// Nivel de detalle con la que se extrae información del caso
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("LevelDetail")]
+        public ActionResult<OutputParametersDto> LevelDetail()
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
+            try
+            {
+                actionResult = Ok(ManagmentParameters.GetLevelDetail());
+            }
+            catch (Exception ex)
+            {
+                actionResult = NotFound(ex.Message);
+            }
+
+            return actionResult;
+        }
+
+        /// <summary>
+        /// Proyectos del usuario de Service Desk v8
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("Projects")]
+        public async Task<ActionResult<OutputParametersDto>> Projects()
+        {
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetProyect());
@@ -86,10 +147,14 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
+        /// <summary>
+        /// Tipo de registro de caso
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("RegistryType")]
-        public async Task<IActionResult> RegistryType()
+        public async Task<ActionResult<OutputParametersDto>> RegistryType()
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetRegistryType());
@@ -102,10 +167,16 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("Responsible/{groupId}/{projectId}")]
-        public async Task<IActionResult> Responsible(int groupId, int projectId)
+        /// <summary>
+        /// Especialista del caso
+        /// </summary>
+        /// <param name="groupId">Id de grupo</param>
+        /// <param name="projectId">Id proyecto</param>
+        /// <returns></returns>
+        [HttpGet("Responsible/{groupId:int?}/{projectId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> Responsible(int groupId = 0, int projectId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetResponsible(groupId, projectId));
@@ -118,10 +189,15 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("Services/{projectId}")]
-        public async Task<IActionResult> Services(int projectId)
+        /// <summary>
+        /// Servicios relacionados al proyecto
+        /// </summary>
+        /// <param name="projectId">Id del proyecto</param>
+        /// <returns></returns>
+        [HttpGet("Services/{projectId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> Services(int projectId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetServices(projectId));
@@ -134,10 +210,16 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("SLAs/{serviceId}/{itemType}")]
-        public async Task<IActionResult> SLAs(int serviceId, int itemType)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="serviceId"></param>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        [HttpGet("SLAs/{serviceId:int?}/{itemType:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> SLAs(int serviceId = 0, int itemType = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetSLAs(serviceId, itemType));
@@ -150,10 +232,16 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("State/{itemType}/{projectId}")]
-        public async Task<IActionResult> State(int itemType, int projectId)
+        /// <summary>
+        /// Estado del caso a crear relacionado al proyecto y tipo de caso
+        /// </summary>
+        /// <param name="itemType">id tipo de caso</param>
+        /// <param name="projectId">id proyecto</param>
+        /// <returns></returns>
+        [HttpGet("State/{itemType:int?}/{projectId:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> State(int itemType = 0, int projectId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetState(itemType, projectId));
@@ -166,10 +254,15 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
-        [HttpGet("StateWhenUpdate/{itemType}")]
-        public async Task<IActionResult> StateWhenUpdate(int itemType)
+        /// <summary>
+        /// Estados usados cuando se actualiza un caso
+        /// </summary>
+        /// <param name="itemType">id tipo de caso</param>
+        /// <returns></returns>
+        [HttpGet("StateWhenUpdate/{itemType:int?}")]
+        public async Task<ActionResult<OutputParametersDto>> StateWhenUpdate(int itemType = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetStateWhenUpdateCase(itemType));
@@ -182,10 +275,14 @@ namespace Aranda.Connector.Api.Controllers
             return actionResult;
         }
 
+        /// <summary>
+        /// Urgencia del caso
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Urgency")]
-        public async Task<IActionResult> Urgency()
+        public async Task<ActionResult<OutputParametersDto>> Urgency()
         {
-            IActionResult actionResult;
+            ActionResult<OutputParametersDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentParameters.GetUrgency());

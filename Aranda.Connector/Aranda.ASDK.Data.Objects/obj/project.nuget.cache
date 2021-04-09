@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ufpmVSMD9ECFjfZp9aMH5VKC1GhFVaCvhkhRSizJhAju4yPD/0TKhYsIn5+hvOIF9fNj8wHpiuWcXiqnP+HxMQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mauricio\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

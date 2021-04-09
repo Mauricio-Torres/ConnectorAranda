@@ -1,0 +1,269 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Aranda Connector",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/ManagmentCase/Create": {
+      "post": {
+        "tags": [
+          "ManagmentCase"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InputCreateCaseAsdkV9Dto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AnswerCreateCaseApi"
+            }
+          }
+        }
+      }
+    },
+    "/api/ManagmentCase/GetToken": {
+      "get": {
+        "tags": [
+          "ManagmentCase"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "InputAdditionalFieldsCreate": {
+      "type": "object",
+      "properties": {
+        "boolValue": { },
+        "dateValue": { },
+        "description": {
+          "type": "string"
+        },
+        "enable": {
+          "type": "boolean"
+        },
+        "fieldId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fieldType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "floatValue": { },
+        "identifier": {
+          "type": "string"
+        },
+        "intValue": { },
+        "itemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "stringValue": {
+          "type": "string"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      }
+    },
+    "InputCreateCaseAsdkV9Dto": {
+      "required": [
+        "categoryId",
+        "description",
+        "groupId",
+        "projectId",
+        "registryTypeId",
+        "serviceId",
+        "stateId",
+        "subject"
+      ],
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "companyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "groupId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "projectId": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "registryTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "responsibleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "serviceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "stateId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "cause": {
+          "type": "string"
+        },
+        "ciId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "consoleType": {
+          "type": "string"
+        },
+        "currentProgress": { },
+        "currentTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "estimatedCost": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "estimatedTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "foregroundColorRgb": {
+          "type": "string"
+        },
+        "hasMoreInformation": {
+          "type": "boolean"
+        },
+        "hasPendingSurvey": {
+          "type": "boolean"
+        },
+        "impactId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "instance": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isFeeAvailable": {
+          "type": "boolean"
+        },
+        "itemType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "itemVersion": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "knownError": {
+          "type": "boolean"
+        },
+        "listAdditionalField": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InputAdditionalFieldsCreate"
+          }
+        },
+        "majorProblemInterface": {
+          "type": "array",
+          "items": { }
+        },
+        "modelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "priorityReason": {
+          "type": "string"
+        },
+        "realCost": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "slaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyToken": {
+          "type": "string"
+        },
+        "tempItemId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "thirdParty": {
+          "type": "boolean"
+        },
+        "transformed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AnswerCreateCaseApi": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "idByProject": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,11 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
-using Aranda.Connector.Api.Interface.IService;
+using Aranda.ASDK.Connector.Service.Interface.IService;
+using Aranda.ASDK.Data.Objects.Models.Output;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Aranda.Connector.Api.Controllers
@@ -17,18 +16,25 @@ namespace Aranda.Connector.Api.Controllers
     public class ManagmentAdditionalFieldController : ControllerBase
     {
         private readonly IManagmentAdditionalFieldService ManagmentAdditionalFieldService;
-        private readonly ClaimsPrincipal Principal;
 
-        public ManagmentAdditionalFieldController(IPrincipal principal, IManagmentAdditionalFieldService managmentAdditionalFieldService)
+        public ManagmentAdditionalFieldController(IManagmentAdditionalFieldService managmentAdditionalFieldService)
         {
-            Principal = principal as ClaimsPrincipal;
             ManagmentAdditionalFieldService = managmentAdditionalFieldService;
         }
 
+        /// <summary>
+        /// Campos adicionales
+        /// </summary>
+        /// <param name="projectId">Id proyecto</param>
+        /// <param name="itemType">Tipo caso</param>
+        /// <param name="categoryId">Id de categoría</param>
+        /// <param name="serviceId">Id de servicio</param>
+        /// <param name="stateId">Id estado</param>
+        /// <returns></returns>
         [HttpGet("AdvancedFields/{projectId}/{itemType}/{categoryId:int?}/{serviceId:int?}/{stateId:int?}")]
-        public async Task<IActionResult> AdvancedFields(int projectId, int itemType, int categoryId = 0, int serviceId = 0, int stateId = 0)
+        public async Task<ActionResult<OutputAdditionalFieldsDto>> AdvancedFields(int projectId, int itemType, int categoryId = 0, int serviceId = 0, int stateId = 0)
         {
-            IActionResult actionResult;
+            ActionResult<OutputAdditionalFieldsDto> actionResult;
             try
             {
                 actionResult = Ok(await ManagmentAdditionalFieldService.GetAdditionalField(projectId, itemType, categoryId, serviceId, stateId));
