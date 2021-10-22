@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T6Z+nzan4Tpa+VKFIOuIJnPn5H5Ow3WDSDi09dLYygTUakDUCkWMkJ1qJdwUUzknqafmvXB6I7O6X1LvL4QJag==",
+  "dgSpecHash": "1a888pkx8g53jtv9yzXBgQPIYTAUU7YWtlxR+kjqVV+kMNNO45IXJ4vajupet7ZHAVvOH/Ml6wAJBu8ETobaRQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
+  "projectFilePath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mauricio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",

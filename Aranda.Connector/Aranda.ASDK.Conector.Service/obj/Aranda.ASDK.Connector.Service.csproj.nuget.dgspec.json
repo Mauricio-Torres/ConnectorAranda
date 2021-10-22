@@ -1,35 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj": {}
+    "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj": {
+    "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
         "projectName": "Aranda.ASDK.Connector.Service",
-        "projectPath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
+        "projectPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\Aranda.ASDK.Connector.Service.csproj",
         "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\obj\\",
+        "outputPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Conector.Service\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Mauricio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj": {
-                "projectPath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj"
+              "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj": {
+                "projectPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj"
               }
             }
           }
@@ -84,28 +87,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj": {
+    "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj",
+        "projectUniqueName": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj",
         "projectName": "Aranda.ASDK.Data.Objects",
-        "projectPath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj",
+        "projectPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\Aranda.ASDK.Data.Objects.csproj",
         "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mauricio\\Documents\\Aranda\\ConectorServiceDesk\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\obj\\",
+        "outputPath": "C:\\Users\\Mauricio\\Documents\\Proyectos Web\\ConnectorAranda\\Aranda.Connector\\Aranda.ASDK.Data.Objects\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Mauricio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -144,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }
